@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{9B9EF3FA-4936-4BFA-AD67-E599C9C6BFE7}"
+	ProjectSection(SolutionItems) = preProject
+		..\readme.md = ..\readme.md
+		..\doc\todolist.md = ..\doc\todolist.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4ED133AE-ADB3-4861-8E7B-7A84F84AF6C6}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
