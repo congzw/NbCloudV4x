@@ -31,3 +31,8 @@
 - **lib** 包含第三方依赖库(e.g., nuget repos, ect.)
 - **setup** 包含部署脚本或安装包代码(e.g.,  PowerShell, MSBuild, or NAnt script, WiX source code, etc.) 
 - **src** 源代码(e.g.,  Visual Studio solution, all project folders, etc.)
+
+
+## 项目结构
+
+NbCloud.Common 常用工具库
