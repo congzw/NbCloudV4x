@@ -1,6 +1,10 @@
 # For NbCloud V4x
 
-##分支模型简介
+## 摘要
+
+此项目用于nblcoud v4.x 
+
+## 分支模型简介
 
 分支模型可以分为两类：
 
@@ -21,7 +25,7 @@
 	- Release2.1
 	- ...
 
-##文件结构说明
+## 文件结构说明
 - **build** 包含构建脚本和一些支持性文件(e.g., PowerShell scripts, EXEs, and the parameters file, etc.)
 - **doc** 包含构文档(e.g., developer documents, installation guides, tips, requirements, etc.) 
 - **lib** 包含第三方依赖库(e.g., nuget repos, ect.)
