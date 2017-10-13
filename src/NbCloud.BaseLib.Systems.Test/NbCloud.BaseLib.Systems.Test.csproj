@@ -52,12 +52,15 @@
   <ItemGroup>
     <Compile Include="PlatformInfos\PlatformInfoSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbCloud.BaseLib.Systems\NbCloud.BaseLib.Systems.csproj">
       <Project>{130bc71e-97b6-4bea-99cf-f195a8e656b2}</Project>
       <Name>NbCloud.BaseLib.Systems</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NbCloud.TestLib\NbCloud.TestLib.csproj">
+      <Project>{d5bfcbca-cfd8-4fb1-9bd5-753abca43026}</Project>
+      <Name>NbCloud.TestLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

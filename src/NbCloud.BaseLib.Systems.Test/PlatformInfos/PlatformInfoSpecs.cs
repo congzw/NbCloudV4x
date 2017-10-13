@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NbCloud.TestLib;
 
 namespace NbCloud.BaseLib.Systems.PlatformInfos
 {

@@ -46,8 +46,6 @@ namespace NbCloud.Common
             _defaultFactoryFunc = func;
         }
 
-        public static StringBuilder AppendLog = new StringBuilder();
-
         #endregion 
     }
 }

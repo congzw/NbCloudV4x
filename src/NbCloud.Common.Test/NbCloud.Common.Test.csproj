@@ -58,6 +58,10 @@
       <Project>{3df30841-5480-48a5-aca6-ffb746f9dc00}</Project>
       <Name>NbCloud.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NbCloud.TestLib\NbCloud.TestLib.csproj">
+      <Project>{d5bfcbca-cfd8-4fb1-9bd5-753abca43026}</Project>
+      <Name>NbCloud.TestLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
