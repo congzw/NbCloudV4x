@@ -13,3 +13,10 @@
 - [] add basic projects
 - [] add test projects and ref
 - [] commit!
+
+
+## todolist
+
+版本策略和接口定义
+模块生成工具
+模块安装，卸载，升级
