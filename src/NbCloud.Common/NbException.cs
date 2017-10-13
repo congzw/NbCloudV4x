@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NbCloud.Common.Exceptions
+namespace NbCloud.Common
 {
     /// <summary>
     /// Base exception type for those are thrown by Nb system for Nb specific exceptions.
