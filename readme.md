@@ -39,6 +39,10 @@ NbCloud.TestLib 测试扩展库（用于测试项目）
 
 NbCloud.Common 常用工具库
 
+Logs 日志
+Dependency 依赖注入
+
+
 NbCloud.BaseLib.Systems 系统库（系统核心模型）
 
 平台的版本相关信息
