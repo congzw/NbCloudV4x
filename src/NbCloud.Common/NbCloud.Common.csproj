@@ -57,6 +57,9 @@
     <Compile Include="Ioc\Impls\NinjectServiceLocator.cs" />
     <Compile Include="Ioc\IServiceLocator.cs" />
     <Compile Include="Ioc\ServiceLocatorImplBase.cs" />
+    <Compile Include="Logs\MyLogHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="NbException.cs" />
     <Compile Include="ProjectPrefixHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
