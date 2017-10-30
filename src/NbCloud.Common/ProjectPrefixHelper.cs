@@ -40,6 +40,7 @@ namespace NbCloud.Common
                 return _prefix;
             }
 
+            //the only place hard code and will be replace at once!
             var prefix = "NbCloud";
             var ns = this.GetType().Namespace;
             if (ns != null)

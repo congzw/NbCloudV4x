@@ -66,11 +66,13 @@ namespace NbCloud.Common
         private static string GetPrefix()
         {
             //如果后台有设置，以config的设置为准
-            string prefixSeed = "[NbCloud][Dev][UtilsLogger]";
+            var projectPrefix = MyProjectHelper.Resolve().GetProjectPrefix();
+            string prefixSeed = string.Format("[{0}][Dev][UtilsLogger]", projectPrefix);
             string preFix = ConfigurationManager.AppSettings[Config_Common_LogPrefix];
             if (!string.IsNullOrWhiteSpace(preFix))
             {
-                prefixSeed = prefixSeed.Replace("NbCloud", preFix);
+                prefixSeed = prefixSeed.Replace(projectPrefix, preFix);
+                //fix config [xxx]
                 prefixSeed = string.Format("[{0}]", prefixSeed).Replace("[[", "[").Replace("]]", "]");
             }
             return prefixSeed + " => ";
