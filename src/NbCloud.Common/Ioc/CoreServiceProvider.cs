@@ -1,0 +1,146 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace NbCloud.Common.Ioc
+{
+    /// <summary>
+    /// Core Service Locator
+    /// </summary>
+    public static class CoreServiceProvider
+    {
+
+        private static Func<IServiceLocator> _currentFunc = () => new NullServiceLocator();
+        /// <summary>
+        /// 当前实现Factory，支持运行时替换
+        /// </summary>
+        public static Func<IServiceLocator> CurrentFunc
+        {
+            get { return _currentFunc; }
+            set { _currentFunc = value; }
+        }
+
+        /// <summary>
+        /// 当前实现
+        /// </summary>
+        public static IServiceLocator Current
+        {
+            get { return _currentFunc(); }
+        }
+
+        /// <summary>
+        /// 定位服务
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T LocateService<T>()
+        {
+            var service = Current.GetInstance<T>();
+            return service;
+        }
+    }
+    
+    /// <summary>
+    /// 默认的空实现
+    /// </summary>
+    public class NullServiceLocator : IServiceLocator
+    {
+        /// <summary>
+        /// 获取指定类型的服务对象。
+        /// </summary>
+        /// <returns>
+        /// <paramref name="serviceType"/> 类型的服务对象。 - 或 - 如果没有 <paramref name="serviceType"/> 类型的服务对象，则为 null。
+        /// </returns>
+        /// <param name="serviceType">一个对象，它指定要获取的服务对象的类型。</param>
+        public object GetService(Type serviceType)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Get an instance of the given <paramref name="serviceType"/>.
+        /// </summary>
+        /// <param name="serviceType">Type of object requested.</param>
+        /// <exception cref="ActivationException">if there is an error resolving
+        /// the service instance.</exception>
+        /// <returns>The requested service instance.</returns>
+        public object GetInstance(Type serviceType)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Get an instance of the given named <paramref name="serviceType"/>.
+        /// </summary>
+        /// <param name="serviceType">Type of object requested.</param>
+        /// <param name="key">Name the object was registered with.</param>
+        /// <exception cref="ActivationException">if there is an error resolving
+        /// the service instance.</exception>
+        /// <returns>The requested service instance.</returns>
+        public object GetInstance(Type serviceType, string key)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Get all instances of the given <paramref name="serviceType"/> currently
+        /// registered in the container.
+        /// </summary>
+        /// <param name="serviceType">Type of object requested.</param>
+        /// <exception cref="ActivationException">if there is are errors resolving
+        /// the service instance.</exception>
+        /// <returns>A sequence of instances of the requested <paramref name="serviceType"/>.</returns>
+        public IEnumerable<object> GetAllInstances(Type serviceType)
+        {
+            return Enumerable.Empty<object>();
+        }
+
+        /// <summary>
+        /// Get an instance of the given <typeparamref name="TService"/>.
+        /// </summary>
+        /// <typeparam name="TService">Type of object requested.</typeparam>
+        /// <exception cref="ActivationException">if there is are errors resolving
+        /// the service instance.</exception>
+        /// <returns>The requested service instance.</returns>
+        public TService GetInstance<TService>()
+        {
+            return default(TService);
+        }
+
+        /// <summary>
+        /// Get an instance of the given named <typeparamref name="TService"/>.
+        /// </summary>
+        /// <typeparam name="TService">Type of object requested.</typeparam>
+        /// <param name="key">Name the object was registered with.</param>
+        /// <exception cref="ActivationException">if there is are errors resolving
+        /// the service instance.</exception>
+        /// <returns>The requested service instance.</returns>
+        public TService GetInstance<TService>(string key)
+        {
+            return default(TService);
+        }
+
+        /// <summary>
+        /// Get all instances of the given <typeparamref name="TService"/> currently
+        /// registered in the container.
+        /// </summary>
+        /// <typeparam name="TService">Type of object requested.</typeparam>
+        /// <exception cref="ActivationException">if there is are errors resolving
+        /// the service instance.</exception>
+        /// <returns>A sequence of instances of the requested <typeparamref name="TService"/>.</returns>
+        public IEnumerable<TService> GetAllInstances<TService>()
+        {
+            return Enumerable.Empty<TService>();
+        }
+
+        public bool IsRegistered(Type type)
+        {
+            return false;
+        }
+
+        public bool IsRegistered<T>()
+        {
+            return false;
+        }
+    }
+}
