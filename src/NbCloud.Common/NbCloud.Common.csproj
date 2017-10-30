@@ -45,6 +45,7 @@
     <Compile Include="Collections\Extensions\ListExtensions.cs" />
     <Compile Include="Collections\ITypeList.cs" />
     <Compile Include="Collections\TypeList.cs" />
+    <Compile Include="Data\Model\NbEntity.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="NbException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
