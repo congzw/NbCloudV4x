@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,10 +61,13 @@
     <Compile Include="Logs\MyLogHelper.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MyModelHelper.cs" />
     <Compile Include="NbException.cs" />
     <Compile Include="ProjectPrefixHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResolveAsSingleton.cs" />
+    <Compile Include="Tenants\Tenant.cs" />
+    <Compile Include="Tenants\TenantContext.cs" />
     <Compile Include="UtilsLogger.cs">
       <SubType>Code</SubType>
     </Compile>
