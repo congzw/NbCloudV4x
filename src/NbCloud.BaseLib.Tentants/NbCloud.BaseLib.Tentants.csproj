@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3DF30841-5480-48A5-ACA6-FFB746F9DC00}</ProjectGuid>
+    <ProjectGuid>{47E8827F-56CA-4163-B0FC-14F268DB8835}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NbCloud.Common</RootNamespace>
-    <AssemblyName>NbCloud.Common</AssemblyName>
+    <RootNamespace>NbCloud.BaseLib.Tentants</RootNamespace>
+    <AssemblyName>NbCloud.BaseLib.Tentants</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\..\lib\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -45,33 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\Extensions\CollectionExtensions.cs" />
-    <Compile Include="Collections\Extensions\DictionaryExtensions.cs" />
-    <Compile Include="Collections\Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Collections\Extensions\ListExtensions.cs" />
-    <Compile Include="Collections\ITypeList.cs" />
-    <Compile Include="Collections\TypeList.cs" />
-    <Compile Include="Data\Model\NbEntity.cs" />
-    <Compile Include="Dependency.cs" />
-    <Compile Include="Ioc\ActivationException.cs" />
-    <Compile Include="Ioc\CoreServiceProvider.cs" />
-    <Compile Include="Ioc\Impls\NinjectServiceLocator.cs" />
-    <Compile Include="Ioc\IServiceLocator.cs" />
-    <Compile Include="Ioc\ServiceLocatorImplBase.cs" />
-    <Compile Include="Logs\MyLogHelper.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MyModelHelper.cs" />
-    <Compile Include="NbException.cs" />
-    <Compile Include="ProjectPrefixHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResolveAsSingleton.cs" />
-    <Compile Include="UtilsLogger.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Tenant.cs" />
+    <Compile Include="TenantContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NbCloud.Common\NbCloud.Common.csproj">
+      <Project>{3df30841-5480-48a5-aca6-ffb746f9dc00}</Project>
+      <Name>NbCloud.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

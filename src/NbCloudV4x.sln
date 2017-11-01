@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.BaseLib.Systems.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.TestLib", "NbCloud.TestLib\NbCloud.TestLib.csproj", "{D5BFCBCA-CFD8-4FB1-9BD5-753ABCA43026}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbCloud.BaseLib.Tentants", "NbCloud.BaseLib.Tentants\NbCloud.BaseLib.Tentants.csproj", "{47E8827F-56CA-4163-B0FC-14F268DB8835}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{D5BFCBCA-CFD8-4FB1-9BD5-753ABCA43026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5BFCBCA-CFD8-4FB1-9BD5-753ABCA43026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5BFCBCA-CFD8-4FB1-9BD5-753ABCA43026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E8827F-56CA-4163-B0FC-14F268DB8835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E8827F-56CA-4163-B0FC-14F268DB8835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E8827F-56CA-4163-B0FC-14F268DB8835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E8827F-56CA-4163-B0FC-14F268DB8835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,5 +93,6 @@ Global
 		{130BC71E-97B6-4BEA-99CF-F195A8E656B2} = {2C16C2DC-4FBF-42C1-8BB4-64DC94E0728D}
 		{DD6A1A86-BDDE-4EA3-9C60-4C697D784AD7} = {2C16C2DC-4FBF-42C1-8BB4-64DC94E0728D}
 		{D5BFCBCA-CFD8-4FB1-9BD5-753ABCA43026} = {7F1BA436-B0B0-4EB3-9D93-12CACE2380D9}
+		{47E8827F-56CA-4163-B0FC-14F268DB8835} = {2C16C2DC-4FBF-42C1-8BB4-64DC94E0728D}
 	EndGlobalSection
 EndGlobal

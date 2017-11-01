@@ -1,6 +1,7 @@
 ﻿using System.Web;
+using NbCloud.Common;
 
-namespace NbCloud.Common.Tenants
+namespace NbCloud.BaseLib.Tentants
 {
     public class TenantContext
     {
