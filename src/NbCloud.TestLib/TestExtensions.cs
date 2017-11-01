@@ -14,11 +14,13 @@ namespace NbCloud.TestLib
 
         public static void ShouldNull(this object value)
         {
+            AssertHelper.WriteLineForShouldBeNull(value);
             Assert.IsNull(value);
         }
 
         public static void ShouldNotNull(this object value)
         {
+            AssertHelper.WriteLineForShouldBeNotNull(value);
             Assert.IsNotNull(value);
         }
 
@@ -31,11 +33,13 @@ namespace NbCloud.TestLib
 
         public static void ShouldTrue(this bool result)
         {
+            AssertHelper.WriteLineForShouldBeTrue(result);
             Assert.IsTrue(result);
         }
 
         public static void ShouldFalse(this bool result)
         {
+            AssertHelper.WriteLineForShouldBeFalse(result);
             Assert.IsFalse(result);
         }
 
@@ -63,6 +67,10 @@ namespace NbCloud.TestLib
             return AssertHelper.PrefixOk(value);
         }
         public static string WithKoPrefix(this string value)
+        {
+            return AssertHelper.PrefixKo(value);
+        }
+        public static string WithPrefix(this string value, bool isOk = true)
         {
             return AssertHelper.PrefixKo(value);
         }

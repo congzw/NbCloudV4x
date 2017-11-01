@@ -83,6 +83,10 @@ namespace NbCloud.BaseLib.Tentants
 
         public static TenantContext GetCurrent(this ITenantContextHelper helper, HttpContext httpContext)
         {
+            if (httpContext == null)
+            {
+                return helper.GetCurrent(null);
+            }
             return helper.GetCurrent(new HttpContextWrapper(httpContext));
         }
     }

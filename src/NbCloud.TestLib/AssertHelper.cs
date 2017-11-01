@@ -48,5 +48,53 @@ namespace NbCloud.TestLib
         {
             Debug.WriteLine(PrefixKo(message));
         }
+        public static void WriteLineForShouldBeTrue(bool result)
+        {
+            var message = "Should be true";
+            if (result)
+            {
+                WriteLineOk(message);
+            }
+            else
+            {
+                WriteLineKo(message);
+            }
+        }
+        public static void WriteLineForShouldBeFalse(bool result)
+        {
+            var message = "Should be false";
+            if (!result)
+            {
+                WriteLineOk(message);
+            }
+            else
+            {
+                WriteLineKo(message);
+            }
+        }
+        public static void WriteLineForShouldBeNull(object result)
+        {
+            var message = "Should be null";
+            if (result == null)
+            {
+                WriteLineOk(message);
+            }
+            else
+            {
+                WriteLineKo(message + ": " + result);
+            }
+        }
+        public static void WriteLineForShouldBeNotNull(object result)
+        {
+            var message = "Should be not null";
+            if (result != null)
+            {
+                WriteLineOk(message);
+            }
+            else
+            {
+                WriteLineKo(message + ": null");
+            }
+        }
     }
 }
