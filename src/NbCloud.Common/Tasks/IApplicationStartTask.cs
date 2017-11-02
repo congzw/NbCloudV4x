@@ -3,7 +3,7 @@
     /// <summary>
     /// When ApplicationStart Task
     /// </summary>
-    public interface IApplicationStartTask
+    public interface IApplicationStartTask : IAutoTask
     {
         /// <summary>
         /// When ApplicationStart Task

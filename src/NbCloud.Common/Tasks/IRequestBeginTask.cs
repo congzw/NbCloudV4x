@@ -3,7 +3,7 @@
     /// <summary>
     /// When RequestBegin Task
     /// </summary>
-    public interface IRequestBeginTask
+    public interface IRequestBeginTask : IAutoTask
     {
         /// <summary>
         /// When RequestBegin Task

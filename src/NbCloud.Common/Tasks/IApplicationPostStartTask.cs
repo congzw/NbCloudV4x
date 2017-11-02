@@ -3,7 +3,7 @@
     /// <summary>
     /// During Or After ApplicationStart Task
     /// </summary>
-    public interface IApplicationPostStartTask
+    public interface IApplicationPostStartTask : IAutoTask
     {
         /// <summary>
         /// Execute During Or After ApplicationStart Task

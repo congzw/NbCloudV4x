@@ -3,7 +3,7 @@
     /// <summary>
     /// Before ApplicationStart Task
     /// </summary>
-    public interface IApplicationPreStartTask
+    public interface IApplicationPreStartTask : IAutoTask
     {
         /// <summary>
         /// Before ApplicationStart Task

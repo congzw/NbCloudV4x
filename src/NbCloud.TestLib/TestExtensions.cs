@@ -27,8 +27,8 @@ namespace NbCloud.TestLib
         public static void ShouldEqual(this object value, object expectedValue)
         {
             string message = string.Format("Should {0} equals {1}", value, expectedValue);
-            Assert.AreEqual(expectedValue, value, message.WithKoPrefix());
             AssertHelper.WriteLineOk(message);
+            Assert.AreEqual(expectedValue, value, message.WithKoPrefix());
         }
 
         public static void ShouldTrue(this bool result)

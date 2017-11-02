@@ -53,6 +53,7 @@
     <Compile Include="Collections\TypeList.cs" />
     <Compile Include="Data\Model\NbEntity.cs" />
     <Compile Include="Dependency.cs" />
+    <Compile Include="Tasks\IAutoTask.cs" />
     <Compile Include="Ioc\ActivationException.cs" />
     <Compile Include="Ioc\CoreServiceProvider.cs" />
     <Compile Include="Ioc\Impls\NinjectServiceLocator.cs" />

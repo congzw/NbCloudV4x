@@ -3,7 +3,7 @@
     /// <summary>
     /// When RequestCompleted Task
     /// </summary>
-    public interface IRequestEndTask
+    public interface IRequestEndTask : IAutoTask
     {
         /// <summary>
         /// When RequestCompleted Task
