@@ -69,6 +69,7 @@
     <Compile Include="Tasks\IApplicationPostStartTask.cs" />
     <Compile Include="Tasks\IApplicationPreStartTask.cs" />
     <Compile Include="Tasks\IApplicationStartTask.cs" />
+    <Compile Include="Priority.cs" />
     <Compile Include="Tasks\IRequestBeginTask.cs" />
     <Compile Include="Tasks\IRequestEndTask.cs" />
     <Compile Include="UtilsLogger.cs">

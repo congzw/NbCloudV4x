@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResolveAsSingletonSpecs.cs" />
+    <Compile Include="PrioritySpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbCloud.Common\NbCloud.Common.csproj">
