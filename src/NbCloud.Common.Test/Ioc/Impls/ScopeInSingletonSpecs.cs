@@ -8,7 +8,7 @@ using Ninject;
 namespace NbCloud.Common.Ioc.Impls
 {
     [TestClass]
-    public class InSingletonScopeSpecs
+    public class ScopeInSingletonSpecs
     {
         [TestMethod]
         public void SameThread_Should_Same()
@@ -18,8 +18,7 @@ namespace NbCloud.Common.Ioc.Impls
                 kernel.Bind<object>().ToSelf().InSingletonScope();
                 var instance1 = kernel.Get<object>();
                 var instance2 = kernel.Get<object>();
-                Assert.AreSame(instance1, instance2);
-                Debug.WriteLine("{0}:{1}", instance1.GetHashCode(), instance2.GetHashCode());
+                instance1.ShouldSame(instance2);
             }
         }
         
