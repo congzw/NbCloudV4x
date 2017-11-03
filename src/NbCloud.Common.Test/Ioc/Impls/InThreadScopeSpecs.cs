@@ -1,0 +1,65 @@
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NbCloud.TestLib;
+using Ninject;
+
+namespace NbCloud.Common.Ioc.Impls
+{
+    [TestClass]
+    public class InThreadScopeSpecs
+    {
+        [TestMethod]
+        public void SameThread_Should_Same()
+        {
+            using (var kernel = new StandardKernel())
+            {
+                kernel.Bind<object>().ToSelf().InThreadScope();
+                var instance1 = kernel.Get<object>();
+                var instance2 = kernel.Get<object>();
+                Assert.AreSame(instance1, instance2);
+                Console.WriteLine(instance1.GetHashCode().ToString());
+            }
+        }
+
+        [TestMethod]
+        public void ThreadStart_Should_NotSame()
+        {
+            var kernel = new StandardKernel();
+            kernel.Bind<object>().ToSelf().InThreadScope();
+            
+            var instance1 = kernel.Get<object>();
+            object instance2 = null;
+            var thread = new Thread(() =>
+            {
+                instance2 = kernel.Get<object>();
+            });
+            thread.Start();
+            thread.Join();
+
+            instance1.ShouldNotSame(instance2);
+            kernel.Dispose();
+        }
+        
+        [TestMethod]
+        public async Task TaskRun_Should_NotSure()
+        {
+            for (int i = 0; i < 200; i++)
+            {
+                var kernel = new StandardKernel();
+                kernel.Bind<object>().ToSelf().InThreadScope();
+                var instance1 = kernel.Get<object>();
+                object instance2 = null;
+                await Task.Run(() =>
+                {
+                    instance2 = kernel.Get<object>();
+
+                });
+                
+                instance1.LogHashCodeWiths(instance2);
+                kernel.Dispose();
+            }
+        }
+    }
+}

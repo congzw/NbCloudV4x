@@ -27,8 +27,23 @@ namespace NbCloud.TestLib
         public static void ShouldEqual(this object value, object expectedValue)
         {
             string message = string.Format("Should {0} equals {1}", value, expectedValue);
-            AssertHelper.WriteLineOk(message);
             Assert.AreEqual(expectedValue, value, message.WithKoPrefix());
+            AssertHelper.WriteLineOk(message);
+        }
+
+
+        public static void ShouldSame(this object value, object expectedValue)
+        {
+            string message = string.Format("Should {2} same {0}:{1}", value.GetHashCode(), expectedValue.GetHashCode(), typeof(object).Name);
+            Assert.AreSame(expectedValue, value, message.WithKoPrefix());
+            AssertHelper.WriteLine(message.WithOkPrefix());
+        }
+
+        public static void ShouldNotSame(this object value, object expectedValue)
+        {
+            string message = string.Format("Should {2} not same {0}:{1}", value.GetHashCode(), expectedValue.GetHashCode(), typeof(object).Name);
+            Assert.AreNotSame(expectedValue, value, message.WithKoPrefix());
+            AssertHelper.WriteLine(message.WithOkPrefix());
         }
 
         public static void ShouldTrue(this bool result)
@@ -41,6 +56,17 @@ namespace NbCloud.TestLib
         {
             AssertHelper.WriteLineForShouldBeFalse(result);
             Assert.IsFalse(result);
+        }
+
+        public static void LogHashCode(this object value)
+        {
+            string message = string.Format("{0} <{1}>", value.GetHashCode(), value.GetType().Name);
+            AssertHelper.WriteLine(message);
+        }
+        public static void LogHashCodeWiths(this object value, object value2)
+        {
+            string message = string.Format("{0} <{1}> {2} {3}<{4}>", value.GetHashCode(), value.GetType().Name, value == value2 ? "==" : "!=", value2.GetHashCode(), value2.GetType().Name);
+            AssertHelper.WriteLine(message);
         }
 
         public static void Log(this object value)

@@ -48,6 +48,10 @@ namespace NbCloud.TestLib
         {
             Debug.WriteLine(PrefixKo(message));
         }
+        public static void WriteLine(string message)
+        {
+            Debug.WriteLine(message);
+        }
         public static void WriteLineForShouldBeTrue(bool result)
         {
             var message = "Should be true";
