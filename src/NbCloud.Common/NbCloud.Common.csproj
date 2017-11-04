@@ -53,6 +53,10 @@
     <Compile Include="Collections\TypeList.cs" />
     <Compile Include="Data\Model\NbEntity.cs" />
     <Compile Include="Dependency.cs" />
+    <Compile Include="Scopes\NbScope.cs" />
+    <Compile Include="Scopes\NbScopeResolver.cs" />
+    <Compile Include="Scopes\NbScopeTaskHelper.cs" />
+    <Compile Include="Scopes\NbScopeTrancationManager.cs" />
     <Compile Include="Tasks\IAutoTask.cs" />
     <Compile Include="Ioc\ActivationException.cs" />
     <Compile Include="Ioc\CoreServiceProvider.cs" />
@@ -80,6 +84,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
