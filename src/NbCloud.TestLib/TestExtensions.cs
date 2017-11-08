@@ -34,14 +34,24 @@ namespace NbCloud.TestLib
 
         public static void ShouldSame(this object value, object expectedValue)
         {
-            string message = string.Format("Should {2} same {0}:{1}", value.GetHashCode(), expectedValue.GetHashCode(), typeof(object).Name);
+            if (value == null || expectedValue == null)
+            {
+                Assert.AreNotSame(expectedValue, value);
+                return;
+            }
+            string message = string.Format("Should Same [{0}] => <{1}> : <{2}>", value.GetType().Name, value.GetHashCode(), expectedValue.GetHashCode());
             Assert.AreSame(expectedValue, value, message.WithKoPrefix());
             AssertHelper.WriteLine(message.WithOkPrefix());
         }
 
         public static void ShouldNotSame(this object value, object expectedValue)
         {
-            string message = string.Format("Should {2} not same {0}:{1}", value.GetHashCode(), expectedValue.GetHashCode(), typeof(object).Name);
+            if (value == null || expectedValue == null)
+            {
+                Assert.AreNotSame(expectedValue, value);
+                return;
+            }
+            string message = string.Format("Should Not Same [{0}] => <{1}> : <{2}>", value.GetType().Name, value.GetHashCode(), expectedValue.GetHashCode());
             Assert.AreNotSame(expectedValue, value, message.WithKoPrefix());
             AssertHelper.WriteLine(message.WithOkPrefix());
         }
@@ -74,6 +84,12 @@ namespace NbCloud.TestLib
             if (value == null)
             {
                 Debug.WriteLine("null");
+            }
+
+            if (value is string)
+            {
+                Debug.WriteLine(value);
+                return;
             }
 
             var items = value as IEnumerable;

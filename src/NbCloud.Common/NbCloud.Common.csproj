@@ -34,6 +34,10 @@
       <HintPath>..\..\lib\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -45,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmbientScopes\AmbientScope.cs" />
+    <Compile Include="AmbientScopes\AmbientScopeTaskHelper.cs" />
+    <Compile Include="AmbientScopes\AmbientScopeTrancations.cs" />
+    <Compile Include="AmbientScopes\Ninjects\AmbientOrRequestScopeExtensions.cs" />
+    <Compile Include="AmbientScopes\Ninjects\AmbientScopeExtensions.cs" />
+    <Compile Include="AmbientScopes\Ninjects\NinjectAmbientScope.cs" />
     <Compile Include="Collections\Extensions\CollectionExtensions.cs" />
     <Compile Include="Collections\Extensions\DictionaryExtensions.cs" />
     <Compile Include="Collections\Extensions\EnumerableExtensions.cs" />
