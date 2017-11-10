@@ -55,12 +55,14 @@
     <Compile Include="AmbientScopes\Ninjects\AmbientOrRequestScopeExtensions.cs" />
     <Compile Include="AmbientScopes\Ninjects\AmbientScopeExtensions.cs" />
     <Compile Include="AmbientScopes\Ninjects\NinjectAmbientScope.cs" />
+    <Compile Include="AmbientScopes\Plugins\AmbientScopeTrancation.cs" />
     <Compile Include="Collections\Extensions\CollectionExtensions.cs" />
     <Compile Include="Collections\Extensions\DictionaryExtensions.cs" />
     <Compile Include="Collections\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Collections\Extensions\ListExtensions.cs" />
     <Compile Include="Collections\ITypeList.cs" />
     <Compile Include="Collections\TypeList.cs" />
+    <Compile Include="Data\ITransactionManager.cs" />
     <Compile Include="Data\Model\NbEntity.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="Scopes\NbScope.cs" />
