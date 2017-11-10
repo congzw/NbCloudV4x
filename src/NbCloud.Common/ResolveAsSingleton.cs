@@ -6,43 +6,85 @@ namespace NbCloud.Common
     {
     }
 
-    public sealed class ResolveAsSingleton<T, TInterface> where T : IResolveAsSingleton, TInterface, new()
+    public class ResolveAsSingleton
     {
-        #region for ioc extensions
+        private static Func<Type, object> _resolveFunc;
+        public static void SetResolve(Func<Type, object> resolve)
+        {
+            _resolveFunc = resolve;
+        }
 
-        private static readonly Lazy<TInterface> LazyInstance = new Lazy<TInterface>(() => new T());
-
-        private static Func<TInterface> _defaultFactoryFunc = () => LazyInstance.Value;
         /// <summary>
         /// 当前的实例
         /// </summary>
-        public static TInterface Resolve()
+        public static TInterface Resolve<T, TInterface>() where T : IResolveAsSingleton, TInterface, new()
         {
-            var invoke = _defaultFactoryFunc.Invoke();
-            return invoke;
+            if (_resolveFunc != null)
+            {
+                var instance = _resolveFunc(typeof (TInterface));
+                if (instance != null)
+                {
+                    return (TInterface)_resolveFunc(typeof(TInterface));   
+                }
+            }
+            return ResolveAsSingletonHelper<T, TInterface>.Resolve();
         }
 
         /// <summary>
         /// 重新设置工厂方法（恢复默认）
         /// </summary>
-        public static void ResetFactoryFunc()
+        public static void ResetFactoryFunc<T, TInterface>() where T : IResolveAsSingleton, TInterface, new()
         {
-            _defaultFactoryFunc = () => LazyInstance.Value;
+            ResolveAsSingletonHelper<T, TInterface>.ResetFactoryFunc();
         }
 
         /// <summary>
         /// 重新设置工厂方法
         /// </summary>
         /// <param name="func"></param>
-        public static void SetFactoryFunc(Func<TInterface> func)
+        public static void SetFactoryFunc<T, TInterface>(Func<TInterface> func) where T : IResolveAsSingleton, TInterface, new()
         {
-            if (func == null)
-            {
-                throw new ArgumentNullException("func");
-            }
-            _defaultFactoryFunc = func;
+            ResolveAsSingletonHelper<T, TInterface>.SetFactoryFunc(func);
         }
 
-        #endregion
+        private class ResolveAsSingletonHelper<T, TInterface> where T : IResolveAsSingleton, TInterface, new()
+        {
+            #region for ioc extensions
+
+            private static readonly Lazy<TInterface> LazyInstance = new Lazy<TInterface>(() => new T());
+
+            private static Func<TInterface> _defaultFactoryFunc = () => LazyInstance.Value;
+            /// <summary>
+            /// 当前的实例
+            /// </summary>
+            internal static TInterface Resolve()
+            {
+                var invoke = _defaultFactoryFunc.Invoke();
+                return invoke;
+            }
+
+            /// <summary>
+            /// 重新设置工厂方法（恢复默认）
+            /// </summary>
+            internal static void ResetFactoryFunc()
+            {
+                _defaultFactoryFunc = () => LazyInstance.Value;
+            }
+
+            /// <summary>
+            /// 重新设置工厂方法
+            /// </summary>
+            /// <param name="func"></param>
+            internal static void SetFactoryFunc(Func<TInterface> func)
+            {
+                if (func == null)
+                {
+                    throw new ArgumentNullException("func");
+                }
+                _defaultFactoryFunc = func;
+            }
+
+            #endregion
+        }
     }
 }

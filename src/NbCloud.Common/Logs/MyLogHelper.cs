@@ -59,7 +59,7 @@
         /// <returns></returns>
         public static IMyLogHelper Resolve()
         {
-            return ResolveAsSingleton<MyLogHelper, IMyLogHelper>.Resolve();
+            return ResolveAsSingleton.Resolve<MyLogHelper, IMyLogHelper>();
         }
 
         #endregion

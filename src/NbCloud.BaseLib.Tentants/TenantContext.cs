@@ -36,7 +36,7 @@ namespace NbCloud.BaseLib.Tentants
         /// <returns></returns>
         public static ITenantContextHelper Resolve()
         {
-            return ResolveAsSingleton<TenantContextHelper, ITenantContextHelper>.Resolve();
+            return ResolveAsSingleton.Resolve<TenantContextHelper, ITenantContextHelper>();
         }
 
         #endregion

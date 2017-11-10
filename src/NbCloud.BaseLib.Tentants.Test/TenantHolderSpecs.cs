@@ -69,7 +69,7 @@ namespace NbCloud.BaseLib.Tentants
         [TestMethod]
         public void TryGetMatchTenant_Reset_ShouldReturnByFunc()
         {
-            ResolveAsSingleton<TenantContextHelper, ITenantContextHelper>.SetFactoryFunc(() => new MockTenantContextHelper());
+            ResolveAsSingleton.SetFactoryFunc<TenantContextHelper, ITenantContextHelper>(() => new MockTenantContextHelper());
 
             Func<List<Tenant>> _newLoadFunc = () => new List<Tenant>() {
                 new Tenant() { Id = "1", UniqueName = "tenant1", Name = "租户1", DbConnectionString = "foo" },
@@ -83,13 +83,13 @@ namespace NbCloud.BaseLib.Tentants
             tryGetMatchTenant.ShouldNotNull();
             tryGetMatchTenant.UniqueName.ShouldEqual("tenant1");
 
-            ResolveAsSingleton<TenantContextHelper, ITenantContextHelper>.ResetFactoryFunc();
+            ResolveAsSingleton.ResetFactoryFunc<TenantContextHelper, ITenantContextHelper>();
         }
 
         [TestMethod]
         public void TryGetMatchTenant_Reset_ShouldReturnByFunc2()
         {
-            ResolveAsSingleton<TenantContextHelper, ITenantContextHelper>.SetFactoryFunc(() => new MockTenantContextHelper());
+            ResolveAsSingleton.SetFactoryFunc<TenantContextHelper, ITenantContextHelper>(() => new MockTenantContextHelper());
 
             Func<List<Tenant>> _newLoadFunc = () => new List<Tenant>() {
                 //new Tenant() { Id = "1", UniqueName = "tenant1", Name = "租户1", DbConnectionString = "foo" },
@@ -102,7 +102,7 @@ namespace NbCloud.BaseLib.Tentants
             var tryGetMatchTenant = tenantHolder.TryGetMatchTenant();
             tryGetMatchTenant.ShouldNull();
 
-            ResolveAsSingleton<TenantContextHelper, ITenantContextHelper>.ResetFactoryFunc();
+            ResolveAsSingleton.ResetFactoryFunc<TenantContextHelper, ITenantContextHelper>();
         }
 
     }

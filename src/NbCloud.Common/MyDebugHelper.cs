@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Configuration;
 using System.Web;
-using NbCloud.Common.Ioc;
 
 namespace NbCloud.Common
 {
     public interface IMyDebugHelper : ISingletonDependency
     {
+        /// <summary>
+        /// 是否是调试模式
+        /// </summary>
+        /// <param name="detectHttpRequest"></param>
+        /// <returns></returns>
         bool IsDebugMode(bool detectHttpRequest = false);
+
+        /// <summary>
+        /// 调试信息
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="category"></param>
+        /// <param name="detectHttpRequest"></param>
+        void LogDebugMessage(string message, string category = null, bool detectHttpRequest = false);
     }
 
     public class MyDebugHelper : IMyDebugHelper, IResolveAsSingleton
@@ -44,7 +56,20 @@ namespace NbCloud.Common
             return IsDebugInRequest();
         }
 
-        private static bool IsDebugInRequest()
+        public void LogDebugMessage(string message, string category = null, bool detectHttpRequest = false)
+        {
+            if (IsDebugMode(detectHttpRequest))
+            {
+                if (string.IsNullOrWhiteSpace(category))
+                {
+                    UtilsLogger.LogMessage(string.Format("{0}", message));
+                    return;
+                }
+                UtilsLogger.LogMessage(string.Format("[{0}] > {1}", category, message));
+            }
+        }
+
+        private bool IsDebugInRequest()
         {
             //如果没有启用，侦测url
             if (HttpContext.Current == null)
@@ -55,13 +80,16 @@ namespace NbCloud.Common
             var debug = "true".Equals(value, StringComparison.OrdinalIgnoreCase);
             return debug;
         }
-        
-        private static Func<IMyDebugHelper> _resolve = () => CoreServiceProvider.LocateService<IMyDebugHelper>() ??
-                                                             ResolveAsSingleton<MyDebugHelper, IMyDebugHelper>.Resolve();
+
+        #region for ioc extensions
+
+        private static Func<IMyDebugHelper> _resolve = () => ResolveAsSingleton.Resolve<MyDebugHelper, IMyDebugHelper>();
         public static Func<IMyDebugHelper> Resolve
         {
             get { return _resolve; }
             set { _resolve = value; }
         }
+
+        #endregion
     }
 }

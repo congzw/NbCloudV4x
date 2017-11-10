@@ -20,6 +20,21 @@ namespace NbCloud.Common
     /// </summary>
     public class MyModelHelper : IMyModelHelper, IResolveAsSingleton
     {
+        #region for di extensions
+        
+        private static Func<IMyModelHelper> _resolve = () => ResolveAsSingleton.Resolve<MyModelHelper, IMyModelHelper>();
+        /// <summary>
+        /// 支持动态替换（ResolveAsSingleton）
+        /// </summary>
+        /// <returns></returns>
+        public static Func<IMyModelHelper> Resolve
+        {
+            get { return _resolve; }
+            set { _resolve = value; }
+        }
+
+        #endregion
+
         public void TryCopyProperties(Object updatingObj, Object collectedObj, string[] excludeProperties = null, bool ignoreCase = false)
         {
             if (collectedObj != null && updatingObj != null)
@@ -102,18 +117,5 @@ namespace NbCloud.Common
             }
             return result;
         }
-
-        #region ioc helpers
-
-        /// <summary>
-        /// 支持动态替换（ResolveAsSingleton）
-        /// </summary>
-        /// <returns></returns>
-        public static IMyModelHelper Resolve()
-        {
-            return ResolveAsSingleton<MyModelHelper, IMyModelHelper>.Resolve();
-        }
-
-        #endregion
     }
 }

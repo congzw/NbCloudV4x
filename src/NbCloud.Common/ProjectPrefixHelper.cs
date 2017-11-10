@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace NbCloud.Common
 {
@@ -19,15 +20,13 @@ namespace NbCloud.Common
     /// </summary>
     public class MyProjectHelper : IMyProjectHelper, IResolveAsSingleton
     {
-        #region ioc helpers
+        #region for di extensions
 
-        /// <summary>
-        /// 支持动态替换（ResolveAsSingleton）
-        /// </summary>
-        /// <returns></returns>
-        public static IMyProjectHelper Resolve()
+        private static Func<IMyProjectHelper> _resolve = () => ResolveAsSingleton.Resolve<MyProjectHelper, IMyProjectHelper>();
+        public static Func<IMyProjectHelper> Resolve
         {
-            return ResolveAsSingleton<MyProjectHelper, IMyProjectHelper>.Resolve();
+            get { return _resolve; }
+            set { _resolve = value; }
         }
 
         #endregion
@@ -55,4 +54,6 @@ namespace NbCloud.Common
             return _prefix;
         }
     }
+
+
 }

@@ -35,7 +35,7 @@ namespace NbCloud.BaseLib.Tentants
         [TestMethod]
         public void GetCurrent_Reset_ShouldReturnByFunc()
         {
-            ResolveAsSingleton<TenantContextHelper, ITenantContextHelper>.SetFactoryFunc(() => new MockTenantContextHelper());
+            ResolveAsSingleton.SetFactoryFunc<TenantContextHelper, ITenantContextHelper>(() => new MockTenantContextHelper());
             
             var tenantContextHelper = TenantContextHelper.Resolve();
             var tenantContext = tenantContextHelper.GetCurrent();
@@ -43,7 +43,7 @@ namespace NbCloud.BaseLib.Tentants
             tenantContext.IsEmpty().ShouldFalse();
             tenantContext.UniqueName.ShouldEqual("tenant1");
 
-            ResolveAsSingleton<TenantContextHelper, ITenantContextHelper>.ResetFactoryFunc();
+            ResolveAsSingleton.ResetFactoryFunc<TenantContextHelper, ITenantContextHelper>();
         }
     }
 
