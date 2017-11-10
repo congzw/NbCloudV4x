@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\..\lib\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -63,9 +71,17 @@
     <Compile Include="Collections\ITypeList.cs" />
     <Compile Include="Collections\TypeList.cs" />
     <Compile Include="Data\IConnectionProvider.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\IRepositoryContext.cs" />
     <Compile Include="Data\ITransactionManager.cs" />
     <Compile Include="Data\Model\NbEntity.cs" />
+    <Compile Include="Data\Provider\Nhibernate\NhRepository.cs" />
+    <Compile Include="Data\Provider\Nhibernate\NhRepositoryContext.cs" />
+    <Compile Include="Data\RepositoryBase.cs" />
+    <Compile Include="Data\RepositoryContextBase.cs" />
+    <Compile Include="Data\RepositoryContextDisposeHelper.cs" />
     <Compile Include="Dependency.cs" />
+    <Compile Include="MyDebugHelper.cs" />
     <Compile Include="Scopes\NbScope.cs" />
     <Compile Include="Scopes\NbScopeResolver.cs" />
     <Compile Include="Scopes\NbScopeTaskHelper.cs" />
@@ -98,6 +114,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
