@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Configuration;
-using System.Web;
 
 namespace NbCloud.Common
 {
@@ -39,7 +38,7 @@ namespace NbCloud.Common
         {
             _defaultLogAction.Invoke(string.Format("[{0}] {1}", type.Name, message));
         }
-        
+
         /// <summary>
         /// 重新设置日志打印方式
         /// </summary>
@@ -51,7 +50,7 @@ namespace NbCloud.Common
                 _defaultLogAction = action;
             }
         }
-        
+
         private static Action<string> _defaultLogAction = new Action<string>(TraceMessage);
         private static string _prefix = null;
         private static void TraceMessage(string message)
