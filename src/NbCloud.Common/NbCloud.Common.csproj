@@ -62,6 +62,7 @@
     <Compile Include="Collections\Extensions\ListExtensions.cs" />
     <Compile Include="Collections\ITypeList.cs" />
     <Compile Include="Collections\TypeList.cs" />
+    <Compile Include="Data\IConnectionProvider.cs" />
     <Compile Include="Data\ITransactionManager.cs" />
     <Compile Include="Data\Model\NbEntity.cs" />
     <Compile Include="Dependency.cs" />
