@@ -12,48 +12,53 @@ namespace NbCloud.TestLib
             AssertHelper.ShouldThrows<T>(action);
         }
 
-        public static void ShouldNull(this object value)
+        public static object ShouldNull(this object value)
         {
             AssertHelper.WriteLineForShouldBeNull(value);
             Assert.IsNull(value);
+            return value;
         }
 
-        public static void ShouldNotNull(this object value)
+        public static object ShouldNotNull(this object value)
         {
             AssertHelper.WriteLineForShouldBeNotNull(value);
             Assert.IsNotNull(value);
+            return value;
         }
 
-        public static void ShouldEqual(this object value, object expectedValue)
+        public static object ShouldEqual(this object value, object expectedValue)
         {
             string message = string.Format("Should {0} equals {1}", value, expectedValue);
             Assert.AreEqual(expectedValue, value, message.WithKoPrefix());
             AssertHelper.WriteLineOk(message);
+            return value;
         }
 
 
-        public static void ShouldSame(this object value, object expectedValue)
+        public static object ShouldSame(this object value, object expectedValue)
         {
             if (value == null || expectedValue == null)
             {
                 Assert.AreNotSame(expectedValue, value);
-                return;
+                return value;
             }
             string message = string.Format("Should Same [{0}] => <{1}> : <{2}>", value.GetType().Name, value.GetHashCode(), expectedValue.GetHashCode());
             Assert.AreSame(expectedValue, value, message.WithKoPrefix());
             AssertHelper.WriteLine(message.WithOkPrefix());
+            return value;
         }
 
-        public static void ShouldNotSame(this object value, object expectedValue)
+        public static object ShouldNotSame(this object value, object expectedValue)
         {
             if (value == null || expectedValue == null)
             {
                 Assert.AreNotSame(expectedValue, value);
-                return;
+                return value;
             }
             string message = string.Format("Should Not Same [{0}] => <{1}> : <{2}>", value.GetType().Name, value.GetHashCode(), expectedValue.GetHashCode());
             Assert.AreNotSame(expectedValue, value, message.WithKoPrefix());
             AssertHelper.WriteLine(message.WithOkPrefix());
+            return value;
         }
 
         public static void ShouldTrue(this bool result)
@@ -68,15 +73,17 @@ namespace NbCloud.TestLib
             Assert.IsFalse(result);
         }
 
-        public static void LogHashCode(this object value)
+        public static object LogHashCode(this object value)
         {
             string message = string.Format("{0} <{1}>", value.GetHashCode(), value.GetType().Name);
             AssertHelper.WriteLine(message);
+            return value;
         }
-        public static void LogHashCodeWiths(this object value, object value2)
+        public static object LogHashCodeWiths(this object value, object value2)
         {
             string message = string.Format("{0} <{1}> {2} {3}<{4}>", value.GetHashCode(), value.GetType().Name, value == value2 ? "==" : "!=", value2.GetHashCode(), value2.GetType().Name);
             AssertHelper.WriteLine(message);
+            return value;
         }
 
         public static object Log(this object value)

@@ -84,6 +84,12 @@
     <Compile Include="Data\RepositoryBase.cs" />
     <Compile Include="Data\RepositoryContextBase.cs" />
     <Compile Include="Data\RepositoryContextDisposeHelper.cs" />
+    <Compile Include="Db\MyDbConfigHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Db\MyDbConfigHelperExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Dependency.cs" />
     <Compile Include="MyDebugHelper.cs" />
     <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
