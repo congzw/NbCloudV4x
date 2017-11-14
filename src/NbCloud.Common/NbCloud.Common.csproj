@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\lib\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
@@ -82,6 +86,8 @@
     <Compile Include="Data\RepositoryContextDisposeHelper.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="MyDebugHelper.cs" />
+    <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
+    <Compile Include="NHibernates\MySessionFactory.cs" />
     <Compile Include="Scopes\NbScope.cs" />
     <Compile Include="Scopes\NbScopeResolver.cs" />
     <Compile Include="Scopes\NbScopeTaskHelper.cs" />
