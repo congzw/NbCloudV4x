@@ -47,7 +47,7 @@ namespace NbCloud.Common.Data
             _context.Deleted(entity);
         }
 
-        public abstract T Get(TId Id);
+        public abstract T Get(TId id);
 
         public abstract T Get(Expression<Func<T, bool>> predicate);
 

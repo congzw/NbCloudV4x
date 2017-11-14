@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
 
@@ -12,12 +9,11 @@ namespace NbCloud.Common.Data.Provider.Nhibernate
     public class NhRepositoryContext : RepositoryContextBase, IRepositoryContext
     {
         private ISession _dbContext;
-        private readonly ISession _session;
         private ITransaction _transaction;
         private bool _cancelled;
         public NhRepositoryContext(ISession session)
         {
-            _session = session;
+            _dbContext = session;
         }
 
         public override T Insert<T>(T entity)
@@ -61,12 +57,8 @@ namespace NbCloud.Common.Data.Provider.Nhibernate
         {
             get
             {
-                if (_dbContext == null)
-                {
-                    LogMessage("CTOR() => NhRepositoryContext => _transaction.BeginTransaction()");
-                    _dbContext = _session;
-                    _transaction = _dbContext.BeginTransaction();
-                }
+                LogMessage("CTOR() => NhRepositoryContext => _transaction.BeginTransaction()");
+                _transaction = _dbContext.BeginTransaction();
                 return this._dbContext;
             }
         }

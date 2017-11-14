@@ -12,7 +12,7 @@ namespace NbCloud.Common.Data
         void Flush();
     }
 
-    public interface IRepository<T, TKey> : IRepository
+    public interface IRepository<T, in TKey> : IRepository
     {
         T Create(T entity);
         T Create(T entity, TKey id);
@@ -27,10 +27,7 @@ namespace NbCloud.Common.Data
         /// 所有数据
         /// </summary>
         IQueryable<T> Table { get; }
-
         int Count(Expression<Func<T, bool>> predicate);
         IEnumerable<T> Fetch(Expression<Func<T, bool>> predicate);
-        //IEnumerable<T> Fetch(Expression<Func<T, bool>> predicate, Action<Orderable<T>> order);
-        //IEnumerable<T> Fetch(Expression<Func<T, bool>> predicate, Action<Orderable<T>> order, int skip, int count);
     }
 }
