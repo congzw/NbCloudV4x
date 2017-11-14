@@ -115,6 +115,7 @@
     <Compile Include="UtilsLogger.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Web\HostHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

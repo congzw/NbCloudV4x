@@ -79,6 +79,7 @@
     <Compile Include="ResolveAsSingletonSpecs.cs" />
     <Compile Include="PrioritySpecs.cs" />
     <Compile Include="Tasks\AutoTaskSpecs.cs" />
+    <Compile Include="Web\MyHostHelperSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NbCloud.Common\NbCloud.Common.csproj">

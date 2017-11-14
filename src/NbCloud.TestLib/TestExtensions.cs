@@ -79,7 +79,7 @@ namespace NbCloud.TestLib
             AssertHelper.WriteLine(message);
         }
 
-        public static void Log(this object value)
+        public static object Log(this object value)
         {
             if (value == null)
             {
@@ -89,7 +89,7 @@ namespace NbCloud.TestLib
             if (value is string)
             {
                 Debug.WriteLine(value);
-                return;
+                return value;
             }
 
             var items = value as IEnumerable;
@@ -99,9 +99,10 @@ namespace NbCloud.TestLib
                 {
                     Debug.WriteLine(item);
                 }
-                return;
+                return value;
             }
             Debug.WriteLine(value);
+            return value;
         }
 
         public static string WithOkPrefix(this string value)
