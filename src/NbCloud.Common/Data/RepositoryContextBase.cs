@@ -75,7 +75,7 @@ namespace NbCloud.Common.Data
             this.RequireNew(IsolationLevel);
         }
 
-        public abstract void RequireNew(System.Data.IsolationLevel level);
+        public abstract void RequireNew(IsolationLevel level);
 
         public abstract void Cancel();
 
