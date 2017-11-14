@@ -70,6 +70,7 @@
     <Compile Include="Db\MyDbHelperSpecs.cs" />
     <Compile Include="MyConfigHelperSpecs.cs" />
     <Compile Include="MyProjectHelperSpecs.cs" />
+    <Compile Include="NHibernates\NHibernateSetupSpecs.cs" />
     <Compile Include="Scopes\Mocks.cs" />
     <Compile Include="Ioc\Impls\ScopeInCustomSpecs.cs">
       <SubType>Code</SubType>

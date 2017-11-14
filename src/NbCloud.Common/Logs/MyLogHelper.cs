@@ -1,4 +1,6 @@
-﻿namespace NbCloud.Common.Logs
+﻿using System;
+
+namespace NbCloud.Common.Logs
 {
     /// <summary>
     /// 日志级别
@@ -24,8 +26,8 @@
 
         void Debug(object message);
 
+        void Info(object message);
         //todo
-        //void Info(object message);
         //void Warn(object message);
         //void Error(object message);
         //void Fatal(object message);
@@ -39,6 +41,17 @@
 
     public class MyLogHelper : IMyLogHelper, IResolveAsSingleton
     {
+        #region for di extensions
+
+        private static Func<IMyLogHelper> _resolve = () => ResolveAsSingleton.Resolve<MyLogHelper, IMyLogHelper>();
+        public static Func<IMyLogHelper> Resolve
+        {
+            get { return _resolve; }
+            set { _resolve = value; }
+        }
+
+        #endregion
+
         public LogLevel GetLogLevel()
         {
             //todo adaptee by log4net & config
@@ -51,17 +64,10 @@
             UtilsLogger.LogMessage(message.ToString());
         }
 
-        #region ioc helpers
-        
-        /// <summary>
-        /// 支持动态替换（ResolveAsSingleton）
-        /// </summary>
-        /// <returns></returns>
-        public static IMyLogHelper Resolve()
+        public void Info(object message)
         {
-            return ResolveAsSingleton.Resolve<MyLogHelper, IMyLogHelper>();
+            //todo adaptee by log4net & config
+            UtilsLogger.LogMessage(message.ToString());
         }
-
-        #endregion
     }
 }

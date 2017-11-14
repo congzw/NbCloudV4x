@@ -90,11 +90,14 @@
     <Compile Include="Db\MyDbConfigHelperExtension.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Db\MySqlScriptHelper.cs" />
     <Compile Include="Dependency.cs" />
+    <Compile Include="MessageResult.cs" />
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />
     <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
     <Compile Include="NHibernates\MySessionFactory.cs" />
+    <Compile Include="NHibernates\NHibernateSetup.cs" />
     <Compile Include="Scopes\NbScope.cs" />
     <Compile Include="Scopes\NbScopeResolver.cs" />
     <Compile Include="Scopes\NbScopeTaskHelper.cs" />
