@@ -110,7 +110,7 @@
     </Compile>
     <Compile Include="MyModelHelper.cs" />
     <Compile Include="NbException.cs" />
-    <Compile Include="ProjectPrefixHelper.cs" />
+    <Compile Include="MyProjectHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResolveAsSingleton.cs" />
     <Compile Include="Tasks\IApplicationPostStartTask.cs" />

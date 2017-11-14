@@ -34,6 +34,14 @@ namespace NbCloud.TestLib
             return value;
         }
 
+        public static object ShouldNotEqual(this object value, object expectedValue)
+        {
+            string message = string.Format("Should {0} not equals {1}", value, expectedValue);
+            Assert.AreNotEqual(expectedValue, value, message.WithKoPrefix());
+            AssertHelper.WriteLineOk(message);
+            return value;
+        }
+
 
         public static object ShouldSame(this object value, object expectedValue)
         {
