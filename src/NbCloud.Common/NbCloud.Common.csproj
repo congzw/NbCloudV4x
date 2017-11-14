@@ -91,6 +91,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Dependency.cs" />
+    <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />
     <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
     <Compile Include="NHibernates\MySessionFactory.cs" />

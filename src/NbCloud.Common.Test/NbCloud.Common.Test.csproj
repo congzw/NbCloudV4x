@@ -68,6 +68,7 @@
     <Compile Include="AmbientScopes\Ninjects\NinjectAmbientScopeSpecs.cs" />
     <Compile Include="Data\Provider\Nhibernate\NhRepositoryContextSpecs.cs" />
     <Compile Include="Db\MyDbHelperSpecs.cs" />
+    <Compile Include="MyConfigHelperSpecs.cs" />
     <Compile Include="Scopes\Mocks.cs" />
     <Compile Include="Ioc\Impls\ScopeInCustomSpecs.cs">
       <SubType>Code</SubType>
