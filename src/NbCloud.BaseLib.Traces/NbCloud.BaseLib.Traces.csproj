@@ -84,7 +84,9 @@
     <Compile Include="Demos\ApiTraceFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunningRecords\RunningRecordService.cs" />
-    <Compile Include="RunningRecords\RunningRecordTask.cs" />
+    <Compile Include="RunningRecords\RunningRecordTask.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
