@@ -4,7 +4,8 @@ using NbCloud.TestLib;
 
 namespace NbCloud.Common.NHibernates
 {
-    [TestClass]
+    //这个是测试数据库的自动创建，按需执行即可
+    //[TestClass]
     public class NHibernateSetupSpecs
     {
         private static readonly string ConnName = "DemoConn";

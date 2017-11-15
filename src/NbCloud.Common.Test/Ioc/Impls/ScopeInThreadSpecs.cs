@@ -44,7 +44,7 @@ namespace NbCloud.Common.Ioc.Impls
         [TestMethod]
         public async Task TaskRun_Should_NotSure()
         {
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 20; i++)
             {
                 var kernel = new StandardKernel();
                 kernel.Bind<object>().ToSelf().InThreadScope();

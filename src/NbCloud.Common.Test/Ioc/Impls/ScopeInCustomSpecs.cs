@@ -86,7 +86,7 @@ namespace NbCloud.Common.Ioc.Impls
                 kernel.Bind<object>().ToSelf().InScope(ctx => User.Current);
                 User.Current = new User();
 
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 20; i++)
                 {
                     var instance1 = kernel.Get<object>();
                     object instance2 = null;
@@ -106,7 +106,7 @@ namespace NbCloud.Common.Ioc.Impls
             {
                 kernel.Bind<object>().ToSelf().InScope(ctx => User.Current);
 
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 20; i++)
                 {
                     User.Current = new User();
                     var instance1 = kernel.Get<object>();
