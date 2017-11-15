@@ -116,6 +116,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NbCloud.BaseLib.Tentants\NbCloud.BaseLib.Tentants.csproj">
+      <Project>{47e8827f-56ca-4163-b0fc-14f268db8835}</Project>
+      <Name>NbCloud.BaseLib.Tentants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NbCloud.Common\NbCloud.Common.csproj">
       <Project>{3df30841-5480-48a5-aca6-ffb746f9dc00}</Project>
       <Name>NbCloud.Common</Name>
