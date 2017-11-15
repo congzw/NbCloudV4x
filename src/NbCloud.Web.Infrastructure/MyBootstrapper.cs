@@ -17,23 +17,23 @@ namespace NbCloud.Web
             NinjectConfig.Setup();
             Log("====MyBootstrapper NinjectConfig.Setup() End====");
 
-            Log("====MyBootstrapper TaskConfig.PreStartTasks() Begin====");
-            TaskConfig.PreStartTasks();
-            Log("====MyBootstrapper TaskConfig.PreStartTasks() End====");
+            Log("====MyBootstrapper TaskConfig.RunPreStartTasks() Begin====");
+            TaskConfig.RunPreStartTasks();
+            Log("====MyBootstrapper TaskConfig.RunPreStartTasks() End====");
         }
 
         public static void PostStart()
         {
-            Log("====MyBootstrapper TaskConfig.PostStartTasks() Begin====");
-            TaskConfig.PostStartTasks();
-            Log("====MyBootstrapper TaskConfig.PostStartTasks() End====");
+            Log("====MyBootstrapper TaskConfig.RunPostStartTasks() Begin====");
+            TaskConfig.RunPostStartTasks();
+            Log("====MyBootstrapper TaskConfig.RunPostStartTasks() End====");
         }
 
         public static void Stop()
         {
-            Log("====MyBootstrapper TaskConfig.StopTasks() Begin====");
-            TaskConfig.StopTasks();
-            Log("====MyBootstrapper TaskConfig.StopTasks() End====");
+            Log("====MyBootstrapper TaskConfig.RunStopTasks() Begin====");
+            TaskConfig.RunStopTasks();
+            Log("====MyBootstrapper TaskConfig.RunStopTasks() End====");
         }
 
         private static void Log(string message)

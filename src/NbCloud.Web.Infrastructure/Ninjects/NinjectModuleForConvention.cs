@@ -10,6 +10,7 @@ using NbCloud.Common.Data;
 using NbCloud.Common.Data.Provider.Nhibernate;
 using NbCloud.Common.Logs;
 using NbCloud.Common.NHibernates;
+using NbCloud.Common.Tasks;
 using NHibernate;
 using Ninject;
 using Ninject.Modules;
@@ -99,7 +100,7 @@ namespace NbCloud.Web.Ninjects
         }
         private void SetupForConvention(IList<Assembly> findAppAssemblies, IKernel kernel)
         {
-            var implementingClasses = findAppAssemblies.SelectMany(x => x.GetExportedTypes().Where(t => !t.IsAbstract && typeof(IDependency).IsAssignableFrom(t)));
+            var implementingClasses = findAppAssemblies.SelectMany(x => x.GetExportedTypes().Where(t => !t.IsAbstract && typeof(IDependency).IsAssignableFrom(t))).ToList();
 
             foreach (var implementingClass in implementingClasses)
             {

@@ -102,6 +102,7 @@
     <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
     <Compile Include="NHibernates\MySessionFactory.cs" />
     <Compile Include="NHibernates\NHibernateSetup.cs" />
+    <Compile Include="Tasks\IApplicationStopTask.cs" />
     <Compile Include="Tasks\IAutoTask.cs" />
     <Compile Include="Ioc\ActivationException.cs" />
     <Compile Include="Ioc\CoreServiceProvider.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Priority.cs" />
     <Compile Include="Tasks\IRequestBeginTask.cs" />
     <Compile Include="Tasks\IRequestEndTask.cs" />
+    <Compile Include="UtilsDateTime.cs" />
     <Compile Include="UtilsLogger.cs">
       <SubType>Code</SubType>
     </Compile>

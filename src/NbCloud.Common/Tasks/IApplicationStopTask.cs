@@ -1,9 +1,6 @@
 ﻿namespace NbCloud.Common.Tasks
 {
-    /// <summary>
-    /// Before ApplicationStart Task
-    /// </summary>
-    public interface IApplicationPreStartTask : IAutoTask
+    public interface IApplicationStopTask : IAutoTask
     {
         /// <summary>
         /// Before ApplicationStart Task
