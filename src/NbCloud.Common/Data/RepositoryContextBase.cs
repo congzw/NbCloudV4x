@@ -79,9 +79,19 @@ namespace NbCloud.Common.Data
 
         public abstract void Cancel();
 
-        public abstract void Dispose();
+        protected abstract void Dispose(bool disposing);
 
         public abstract void Commit();
+        
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        ~RepositoryContextBase()
+        {
+            Dispose(false);
+        }
 
         #endregion
 

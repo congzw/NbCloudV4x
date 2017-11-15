@@ -109,7 +109,23 @@ namespace NbCloud.Common.Data.Provider.Nhibernate
             LogMessage(message);
         }
 
-        public override void Dispose()
+        private bool _disposed = false;
+        protected override void Dispose(bool disposing)
+        {
+            //本类内部没有封装任何托管或非托管资源
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    //处理托管资源
+                    DisposeIt();
+                }
+                //处理非托管资源
+            }
+            _disposed = true;
+        }
+
+        private void DisposeIt()
         {
             if (_transaction != null)
             {

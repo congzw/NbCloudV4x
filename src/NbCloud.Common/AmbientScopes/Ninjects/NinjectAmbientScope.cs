@@ -5,13 +5,16 @@ namespace NbCloud.Common.AmbientScopes.Ninjects
 {
     public class NinjectAmbientScope : AmbientScope, INotifyWhenDisposed
     {
-        public override void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            base.Dispose();
-            this.IsDisposed = true;
-            if (this.Disposed != null)
+            base.Dispose(disposing);
+            if (!IsDisposed)
             {
-                this.Disposed(this, EventArgs.Empty);
+                this.IsDisposed = true;
+                if (this.Disposed != null)
+                {
+                    this.Disposed(this, EventArgs.Empty);
+                }
             }
         }
         public bool IsDisposed { get; private set; }

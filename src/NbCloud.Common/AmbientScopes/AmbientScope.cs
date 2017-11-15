@@ -42,20 +42,44 @@ namespace NbCloud.Common.AmbientScopes
             }
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
-            if (!ScopeStack.IsEmpty)
-            {
-                IDisposable result;
-                ScopeStack.TryPop(out result);
-            }
-            if (ScopeStack.IsEmpty)
-            {
-                CallContext.FreeNamedDataSlot(_scopeStackKey);
-            }
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
+        ~AmbientScope()
+        {
+            Dispose(false);
+        }
+
+        private bool _disposed = false;
+        protected virtual void Dispose(bool disposing)
+        {
+            //本类内部没有封装任何托管或非托管资源，所以无需额外处理，直接维护正确的容器结构即可
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    //处理托管资源
+                    if (!ScopeStack.IsEmpty)
+                    {
+                        IDisposable result;
+                        ScopeStack.TryPop(out result);
+                    }
+                    if (ScopeStack.IsEmpty)
+                    {
+                        CallContext.FreeNamedDataSlot(_scopeStackKey);
+                    }
+                }
+                //处理非托管资源
+            }
+            _disposed = true;
+        }
+
     }
 
+    #region ImmutableStack Impls
+    
     //public class AmbientScope : IDisposable
     //{
     //    private static readonly string _scopeStackKey = "AmbientScopeStack";
@@ -107,4 +131,6 @@ namespace NbCloud.Common.AmbientScopes
     //        }
     //    }
     //}
+
+    #endregion
 }
