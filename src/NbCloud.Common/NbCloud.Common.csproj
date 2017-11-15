@@ -92,8 +92,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Db\MySqlScriptHelper.cs" />
+    <Compile Include="Demos\DemoServices.cs" />
     <Compile Include="Demos\DisposeResourceDemo.cs" />
     <Compile Include="Dependency.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="MessageResult.cs" />
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />

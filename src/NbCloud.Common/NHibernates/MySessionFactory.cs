@@ -143,7 +143,7 @@ namespace NbCloud.Common.NHibernates
 
         protected void LogMessage(string message)
         {
-            MyLogHelper.Resolve().Debug("[MyNHibernateHelper]=> " + message);
+            MyLogHelper.Resolve().Debug(this.GetType(), message);
         }
 
         #endregion

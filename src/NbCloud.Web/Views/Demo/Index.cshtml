@@ -1,0 +1,26 @@
+﻿@using NbCloud.BaseLib.Tentants
+@using NbCloud.Common
+@model dynamic
+@{
+    ViewBag.Title = "Demo";
+}
+
+<h2>Demo Index</h2>
+@{
+    <h2>@ViewBag.Message</h2>
+    return;
+    var myModelHelper = MyModelHelper.Resolve();
+    var propertyNameValue = myModelHelper.GetPropertyNameValue(Request.Url);
+    var tenantContextHelper = TenantContextHelper.Resolve();
+    var tenantContext = tenantContextHelper.GetCurrent();
+    <hr />
+    <h2>
+        @tenantContext.UniqueName
+    </h2>
+    <hr />
+
+    foreach (var item in propertyNameValue.Keys)
+    {
+        <p><span>@item</span>:<span>@propertyNameValue[item]</span></p>
+    }
+}

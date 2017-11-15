@@ -68,6 +68,7 @@
     <Compile Include="AmbientScopes\Ninjects\NinjectAmbientScopeSpecs.cs" />
     <Compile Include="Data\Provider\Nhibernate\NhRepositoryContextSpecs.cs" />
     <Compile Include="Db\MyDbHelperSpecs.cs" />
+    <Compile Include="Extensions\StringExtensionsSpecs.cs" />
     <Compile Include="MyConfigHelperSpecs.cs" />
     <Compile Include="MyProjectHelperSpecs.cs" />
     <Compile Include="NHibernates\NHibernateSetupSpecs.cs" />

@@ -70,4 +70,12 @@ namespace NbCloud.Common.Logs
             UtilsLogger.LogMessage(message.ToString());
         }
     }
+
+    public static class MyLogHelperExtensions
+    {
+        public static void Debug(this IMyLogHelper helper, Type type, object message)
+        {
+            helper.Debug(string.Format("[{0}] => {1}", type.Name, message));
+        }
+    }
 }
