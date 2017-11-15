@@ -10,4 +10,9 @@
         /// </summary>
         void Execute();
     }
+
+    public interface IApplicationStopTask : IAutoTask
+    {
+        
+    }
 }
