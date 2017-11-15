@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using NbCloud.Common.Scopes;
 using NbCloud.TestLib;
 using Ninject;
 

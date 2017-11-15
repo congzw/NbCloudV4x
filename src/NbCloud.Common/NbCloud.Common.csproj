@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -98,10 +99,6 @@
     <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
     <Compile Include="NHibernates\MySessionFactory.cs" />
     <Compile Include="NHibernates\NHibernateSetup.cs" />
-    <Compile Include="Scopes\NbScope.cs" />
-    <Compile Include="Scopes\NbScopeResolver.cs" />
-    <Compile Include="Scopes\NbScopeTaskHelper.cs" />
-    <Compile Include="Scopes\NbScopeTrancationManager.cs" />
     <Compile Include="Tasks\IAutoTask.cs" />
     <Compile Include="Ioc\ActivationException.cs" />
     <Compile Include="Ioc\CoreServiceProvider.cs" />

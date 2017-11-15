@@ -71,14 +71,11 @@
     <Compile Include="MyConfigHelperSpecs.cs" />
     <Compile Include="MyProjectHelperSpecs.cs" />
     <Compile Include="NHibernates\NHibernateSetupSpecs.cs" />
-    <Compile Include="Scopes\Mocks.cs" />
     <Compile Include="Ioc\Impls\ScopeInCustomSpecs.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Ioc\Impls\ScopeInSingletonSpecs.cs" />
     <Compile Include="Ioc\Impls\ScopeInThreadSpecs.cs" />
-    <Compile Include="Scopes\NbScopeTaskHelperSpecs.cs" />
-    <Compile Include="Scopes\NbScopeSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResolveAsSingletonSpecs.cs" />
     <Compile Include="PrioritySpecs.cs" />

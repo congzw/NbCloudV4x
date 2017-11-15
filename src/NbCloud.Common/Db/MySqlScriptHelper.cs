@@ -103,8 +103,7 @@ END", dbName);
             MessageResult mr = RunScript(newConnStr, script);
             return mr;
         }
-
-
+        
         private MessageResult RunScript(string connString, string scriptSql, string rollbackScript = null)
         {
             using (var sqlCon = new SqlConnection(connString))
@@ -119,6 +118,7 @@ END", dbName);
                 return mr;
             }
         }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:检查 SQL 查询是否存在安全漏洞")]
         private MessageResult ExecuteScript(IDbConnection sqlCon, string scriptSql)
         {
             MessageResult mr = new MessageResult();
@@ -166,6 +166,7 @@ END", dbName);
             mr.Message = "执行完毕";
             return mr;
         }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:检查 SQL 查询是否存在安全漏洞")]
         private void ExecuteNonQuerySqlWithGo(IDbCommand cmd, string scriptSql)
         {
             if (cmd == null)
@@ -203,6 +204,7 @@ END", dbName);
                 cmd.Connection.Close();
             }
         }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:检查 SQL 查询是否存在安全漏洞")]
         private object ExecuteScriptScalar(IDbConnection sqlCon, string scriptSql)
         {
             object result = null;

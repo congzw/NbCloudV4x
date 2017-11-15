@@ -5,6 +5,7 @@ namespace NbCloud.Common.Ioc
     /// <summary>
     /// The standard exception thrown when a ServiceLocator has an error in resolving an object.
     /// </summary>
+    [Serializable]
     public partial class ActivationException : Exception
     {
         /// <summary>
