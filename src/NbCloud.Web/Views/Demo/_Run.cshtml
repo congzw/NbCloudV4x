@@ -1,0 +1,20 @@
+﻿@using NbCloud.Common.Ioc
+@model dynamic
+@{
+    this.Layout = null;
+    ViewBag.Title = "_Run";
+}
+<h2>Demo _Run</h2>
+<hr />
+@{
+    <h2>fixed ninject 3.2 bind multi time bugs</h2>
+    //FixMultiBindings<RouteCollection>(kernel);
+    //FixMultiBindings<HttpContextBase>(kernel);
+    //FixMultiBindings<HttpContext>(kernel);
+    var routeCollection = CoreServiceProvider.LocateService<RouteCollection>();
+    var httpContextBase = CoreServiceProvider.LocateService<HttpContextBase>();
+    var httpContext = CoreServiceProvider.LocateService<HttpContext>();
+    <h2>routeCollection OK: @(routeCollection != null)</h2>
+    <h2>httpContextBase OK: @(httpContextBase != null)</h2>
+    <h2>httpContext OK: @(httpContext != null)</h2>
+}

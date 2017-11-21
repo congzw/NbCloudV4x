@@ -18,7 +18,16 @@ namespace NbCloud.Web.Controllers
         {
             var hello = _demoService.Hello();
             var s = _demoService2.Hello();
-            ViewBag.Message = hello + " " +  s;
+            ViewBag.Message = hello + " " + s;
+            return View();
+        }
+        
+        public ActionResult _Run(string view = null)
+        {
+            if (!string.IsNullOrWhiteSpace(view))
+            {
+                return View(view);
+            }
             return View();
         }
     }
