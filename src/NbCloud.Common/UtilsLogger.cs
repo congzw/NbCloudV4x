@@ -52,13 +52,24 @@ namespace NbCloud.Common
         }
 
         private static Action<string> _defaultLogAction = new Action<string>(TraceMessage);
-        private static string _prefix = null;
+        private static bool? _enabled;
+        private static string _prefix;
         private static void TraceMessage(string message)
         {
+            if (_enabled == null)
+            {
+                _enabled = GetLogEnabled();
+            }
+            if (!_enabled.Value)
+            {
+                return;
+            }
+
             if (_prefix == null)
             {
                 _prefix = GetPrefix();
             }
+
             System.Diagnostics.Trace.WriteLine(_prefix + message);
         }
 
@@ -76,6 +87,12 @@ namespace NbCloud.Common
                 prefixSeed = string.Format("[{0}]", prefixSeed).Replace("[[", "[").Replace("]]", "]");
             }
             return prefixSeed + " => ";
+        }
+
+        private static string Config_Common_LogEnabled = "Config.Common.LogEnabled";
+        private static bool GetLogEnabled()
+        {
+            return MyConfigHelper.Resolve().GetAppSettingValueAsBool(Config_Common_LogEnabled, false);
         }
     }
 }
