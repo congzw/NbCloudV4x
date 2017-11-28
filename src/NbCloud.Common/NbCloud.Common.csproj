@@ -96,7 +96,11 @@
     <Compile Include="Demos\DisposeResourceDemo.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="MessageResult.cs" />
+    <Compile Include="Modules\NbKernelModule.cs" />
+    <Compile Include="Modules\DependsOnAttribute.cs" />
+    <Compile Include="Modules\NbModule.cs" />
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />
     <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
@@ -130,6 +134,7 @@
     <Compile Include="Web\HostHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Modules\readme.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
