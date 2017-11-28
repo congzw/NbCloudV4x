@@ -114,7 +114,7 @@ namespace NbCloud.Common.Modules
                 {
                     foreach (var dependedModuleType in dependsOnAttribute.DependedModuleTypes)
                     {
-                        list.Add(dependedModuleType);
+                        list.AddIfNotContains(dependedModuleType);
                     }
                 }
             }
