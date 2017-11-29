@@ -69,6 +69,7 @@
     <Compile Include="AmbientScopes\Ninjects\AmbientScopeExtensions.cs" />
     <Compile Include="AmbientScopes\Ninjects\NinjectAmbientScope.cs" />
     <Compile Include="AmbientScopes\Plugins\AmbientScopeTrancation.cs" />
+    <Compile Include="AssemblyLoader.cs" />
     <Compile Include="Collections\Extensions\CollectionExtensions.cs" />
     <Compile Include="Collections\Extensions\DictionaryExtensions.cs" />
     <Compile Include="Collections\Extensions\EnumerableExtensions.cs" />
@@ -97,15 +98,26 @@
     <Compile Include="Dependency.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Gini.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IniFileHelper.cs" />
     <Compile Include="MessageResult.cs" />
     <Compile Include="Modules\NbKernelModule.cs" />
     <Compile Include="Modules\DependsOnAttribute.cs" />
     <Compile Include="Modules\NbModule.cs" />
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />
+    <Compile Include="MyPathHelper.cs" />
     <Compile Include="NHibernates\FluentNhibernateExtensions.cs" />
     <Compile Include="NHibernates\MySessionFactory.cs" />
     <Compile Include="NHibernates\NHibernateSetup.cs" />
+    <Compile Include="PlugIns\PlugIn.cs" />
+    <Compile Include="PlugIns\FolderPlugInAssemblyHelper.cs" />
+    <Compile Include="PlugIns\MyPluginManager.cs" />
+    <Compile Include="PlugIns\PlugInAssemblyLoader.cs" />
+    <Compile Include="PlugIns\PlugInFinder.cs" />
+    <Compile Include="PlugIns\PlugInManager.cs" />
     <Compile Include="Tasks\IApplicationStopTask.cs" />
     <Compile Include="Tasks\IAutoTask.cs" />
     <Compile Include="Ioc\ActivationException.cs" />

@@ -4,6 +4,34 @@
 [ref](https://aspnetboilerplate.com/Pages/Documents/Module-System)
 
 
+模块系统
+
+## 模块生命周期方法及其调用顺序
+
+方法：
+
+- PreInitialize： DI初始化前的代码逻辑, 例如DI的配置等。
+- Initialize： DI初始化的代码逻辑, 例如DI的注册等。
+- PostInitialize：DI初始化后的代码逻辑，例如DI的使用。
+- Shutdown：系统关闭前的逻辑。
+
+顺序（假设模块A依赖B）： 
+
+- PreInitialize-B
+- PreInitialize-A
+- Initialize-B
+- Initialize-A
+- PostInitialize-B
+- PostInitialize-A
+
+- Shutdown-A
+- Shutdown-B
+
+
+
+
+
+
 ## 翻译
 
 ## 1.3 ABP总体介绍 - 模块系统

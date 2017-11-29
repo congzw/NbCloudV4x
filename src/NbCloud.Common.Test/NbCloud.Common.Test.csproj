@@ -39,6 +39,7 @@
       <HintPath>..\..\lib\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Moq, Version=4.7.142.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\..\lib\Moq.4.7.142\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +73,8 @@
     <Compile Include="Modules\Mocks.cs" />
     <Compile Include="Modules\NbModuleSpecs.cs" />
     <Compile Include="MyConfigHelperSpecs.cs" />
+    <Compile Include="MyIniFileHelperSpecs.cs" />
+    <Compile Include="MyPathHelperSpecs.cs" />
     <Compile Include="MyProjectHelperSpecs.cs" />
     <Compile Include="NHibernates\NHibernateSetupSpecs.cs" />
     <Compile Include="Ioc\Impls\ScopeInCustomSpecs.cs">
@@ -79,6 +82,7 @@
     </Compile>
     <Compile Include="Ioc\Impls\ScopeInSingletonSpecs.cs" />
     <Compile Include="Ioc\Impls\ScopeInThreadSpecs.cs" />
+    <Compile Include="PlugIns\PlugInManagerSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResolveAsSingletonSpecs.cs" />
     <Compile Include="PrioritySpecs.cs" />
