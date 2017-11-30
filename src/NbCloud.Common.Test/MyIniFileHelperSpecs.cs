@@ -80,11 +80,11 @@ file=payroll.dat";
 
             AssertHelper.ShouldThrows<ArgumentException>(() =>
             {
-                loadIniContentAsFlat.GetItemValue("","");
+                loadIniContentAsFlat.GetSectionItemValue("","");
             });
             AssertHelper.ShouldThrows<ArgumentException>(() =>
             {
-                loadIniContentAsFlat.GetItemValue("",null);
+                loadIniContentAsFlat.GetSectionItemValue("", null);
             });
         }
         [TestMethod]

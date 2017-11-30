@@ -69,7 +69,7 @@ namespace NbCloud.Common
         {
             if (string.IsNullOrWhiteSpace(key))
             {
-                throw new AggregateException("key不能为空");
+                throw new ArgumentException("key不能为空");
             }
             var result = defaultValue;
             foreach (var section in Items)
