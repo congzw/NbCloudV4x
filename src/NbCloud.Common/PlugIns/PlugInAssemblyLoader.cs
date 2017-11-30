@@ -8,7 +8,7 @@ namespace NbCloud.Common.PlugIns
         IList<Assembly> LoadAllPlugIns(IList<IPlugIn> plugIns);
     }
 
-    public static class PlugInAssemblyLoader
+    public class PlugInAssemblyLoader
     {
     }
 }

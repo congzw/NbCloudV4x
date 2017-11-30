@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NbCloud.TestLib;
 
 namespace NbCloud.Common.PlugIns
@@ -37,6 +38,7 @@ namespace NbCloud.Common.PlugIns
             var module3 = new PlugIn("ModuleA", "某模块", "1.0.0.0");
             plugInManager.IsRegistered(module3).ShouldTrue();
         }
+
         [TestMethod]
         public void Register_Should_Diff_Name()
         {
@@ -69,12 +71,5 @@ namespace NbCloud.Common.PlugIns
 
             plugInManager.PlugInList.Count.ShouldEqual(2);
         }
-
-        //[TestMethod]
-        //public void AutoRegisterPlugIns_Should_OK()
-        //{
-        //    IPlugInManager plugInManager = new PlugInManager();
-        //    plugInManager.AutoRegisterPlugIns();
-        //}
     }
 }

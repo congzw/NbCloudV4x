@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.Linq;
 using NbCloud.Common.Collections.Extensions;
 using NbCloud.Common.Extensions;
 
@@ -11,20 +7,20 @@ namespace NbCloud.Common.PlugIns
     public interface IPlugInManager
     {
         /// <summary>
-        /// �Ƿ�ע���
+        /// 模块是否注册
         /// </summary>
         /// <param name="plugIn"></param>
         /// <returns></returns>
         bool IsRegistered(IPlugIn plugIn);
 
         /// <summary>
-        /// ע����
+        /// 模块注册
         /// </summary>
         /// <param name="plugIn"></param>
         void Register(IPlugIn plugIn);
 
         /// <summary>
-        /// ����б�
+        /// 所有的插件列表
         /// </summary>
         PlugInList PlugInList { get; }
     }

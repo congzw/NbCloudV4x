@@ -7,7 +7,7 @@ namespace NbCloud.Common.PlugIns
 {
     public interface IPlugInFinder
     {
-        Func<string> PlugInBaseFolderResolver { get; set; }
+        //Func<string> PlugInBaseFolderResolver { get; set; }
         IList<IPlugIn> FindAllPlugIns();
     }
     
@@ -38,36 +38,52 @@ namespace NbCloud.Common.PlugIns
 
         public IList<IPlugIn> FindAllPlugIns()
         {
-            var plugIns = new List<IPlugIn>();
             var plugInBaseFolder = PlugInBaseFolderResolver();
-            var plugInFolders = GetPlugInFolders(plugInBaseFolder);
-            foreach (var plugInFolder in plugInFolders)
-            {
-                //find meta file: desc.json
-                //ini?
-                //plugIns.Add(new PlugIn());
-            }
-            throw new NotImplementedException();
-
+            var descFilePaths = GetPlugInDescFilePaths(plugInBaseFolder);
+            var plugIns = CreatePlugInFromDescFiles(descFilePaths.ToArray());
+            return plugIns;
         }
 
-        private static IList<string> GetPlugInFolders(string plugInBaseFolder)
+        private IList<IPlugIn> CreatePlugInFromDescFiles(params string[] descFilePaths)
         {
-            var searchOption = SearchOption.TopDirectoryOnly;
+            var plugIns = new List<IPlugIn>();
+            var myIniHelper = MyIniFileHelper.Resolve();
+            foreach (var descFilePath in descFilePaths)
+            {
+                if (!File.Exists(descFilePath))
+                {
+                    throw new NbException("没有找到插件的描述文件：" + descFilePath);
+                }
+                var content = File.ReadAllText(descFilePath);
+                var iniFlatContent = myIniHelper.LoadIniContentAsFlat(content);
+                var code = iniFlatContent.GetItemValue("Code");
+                var name = iniFlatContent.GetItemValue("Name");
+                var version = iniFlatContent.GetItemValue("Version");
+                var description = iniFlatContent.GetItemValue("Description");
+                var plugIn = new PlugIn(code, name, version);
+                plugIn.Description = description;
+                plugIns.Add(plugIn);
+            }
+            return plugIns;
+        }
+
+        private IList<string> GetPlugInDescFilePaths(string plugInBaseFolder)
+        {
+            var searchOption = SearchOption.AllDirectories;
             var plugInFolders = Directory
-                .EnumerateDirectories(plugInBaseFolder, "*.*", searchOption).ToList();
+                .GetFiles(plugInBaseFolder, "Description.txt", searchOption).ToList();
+                //.Where(s => s.EndsWith("Description.txt", StringComparison.OrdinalIgnoreCase)).ToList();
             return plugInFolders;
         }
     }
 
     public static class PlugInManagerExtensions
     {
-        public static IList<IPlugIn> FindAllPlugIns(this IPlugInManager plugInManager)
-        {
-            //todo filter by config before register
-            var plugIns = PlugInFinder.Resolve().FindAllPlugIns();
-            return plugIns;
-        }
+        //public static IList<IPlugIn> FindAllPlugIns(this IPlugInManager plugInManager)
+        //{
+        //    var plugIns = PlugInFinder.Resolve().FindAllPlugIns();
+        //    return plugIns;
+        //}
 
         //public static void AutoRegisterPlugIns(this IPlugInManager plugInManager)
         //{

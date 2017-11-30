@@ -1,0 +1,5 @@
+﻿# 模块A
+Code=ModuleB
+Name=模块B
+Version=1.1.0.0
+Description=Blah
