@@ -102,6 +102,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IniFileHelper.cs" />
+    <Compile Include="Lambda.cs" />
     <Compile Include="MessageResult.cs" />
     <Compile Include="Modules\NbKernelModule.cs" />
     <Compile Include="Modules\DependsOnAttribute.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace NbCloud.Common.PlugIns
 {
@@ -9,6 +10,13 @@ namespace NbCloud.Common.PlugIns
     {
         //Func<string> PlugInBaseFolderResolver { get; set; }
         IList<IPlugIn> FindAllPlugIns();
+
+        /// <summary>
+        /// 加载程序集
+        /// </summary>
+        /// <param name="plugIns"></param>
+        /// <returns></returns>
+        IList<Assembly> LoadAssemblies(params IPlugIn[] plugIns);
     }
     
     public class PlugInFinder : IPlugInFinder, IResolveAsSingleton
@@ -44,6 +52,28 @@ namespace NbCloud.Common.PlugIns
             return plugIns;
         }
 
+        public IList<Assembly> LoadAssemblies(params IPlugIn[] plugIns)
+        {
+            throw new NotImplementedException();
+            //var plugInBaseFolder = PlugInBaseFolderResolver();
+            //var assemblyFolderPaths = GetPlugInFolderPaths(plugInBaseFolder);
+            //foreach (var assemblyFolderPath in assemblyFolderPaths)
+            //{
+            //    var descFilePaths = GetPlugInDescFilePaths(assemblyFolderPath);
+            //}
+            //foreach (var plugIn in plugIns)
+            //{
+
+            //}
+
+            //var searchOption = SearchOption.TopDirectoryOnly;
+            //var assemblyFiles = Directory
+            //    .EnumerateFiles(folderPath, "*.*", searchOption)
+            //    .Where(s => s.EndsWith(".dll") || s.EndsWith(".exe"));
+
+            //return assemblyFiles.Select(_assemblyLoader.Load).ToList();
+        }
+
         private IList<IPlugIn> CreatePlugInFromDescFiles(params string[] descFilePaths)
         {
             var plugIns = new List<IPlugIn>();
@@ -70,9 +100,16 @@ namespace NbCloud.Common.PlugIns
         private IList<string> GetPlugInDescFilePaths(string plugInBaseFolder)
         {
             var searchOption = SearchOption.AllDirectories;
-            var plugInFolders = Directory
+            var plugInDescFilePaths = Directory
                 .GetFiles(plugInBaseFolder, "Description.txt", searchOption).ToList();
-                //.Where(s => s.EndsWith("Description.txt", StringComparison.OrdinalIgnoreCase)).ToList();
+            return plugInDescFilePaths;
+        }
+
+        private IList<string> GetPlugInFolderPaths(string plugInBaseFolder)
+        {
+            var searchOption = SearchOption.TopDirectoryOnly;
+            var plugInFolders = Directory
+                .GetDirectories(plugInBaseFolder, "*", searchOption).ToList();
             return plugInFolders;
         }
     }
