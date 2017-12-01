@@ -93,9 +93,9 @@ namespace NbCloud.Web.Ninjects
 
             var sessionFactory = kernel.Get<IMySessionFactory>();
             var session = sessionFactory.OpenSession();
-            //Auto的性能影响特别明显
-            //这里是为了解决并发查询的效率问题，数据库经常被阻塞异常
-            session.FlushMode = FlushMode.Commit;
+            //并发查询修改同一条记录的效率问题，数据库经常被阻塞异常
+            //跟这个无关，其实跟事务级别有关 
+            //session.FlushMode = FlushMode.Auto;
             return session;
         }
         private void SetupForConvention(IList<Assembly> findAppAssemblies, IKernel kernel)

@@ -17,7 +17,8 @@ namespace NbCloud.Common.Data
         protected RepositoryContextBase()
         {
             _repositoryTable = new Dictionary<string, IRepository>();
-            IsolationLevel = IsolationLevel.ReadCommitted;
+            //IsolationLevel = IsolationLevel.ReadCommitted;
+            IsolationLevel = IsolationLevel.ReadUncommitted;
         }
 
         #region Private Fields
