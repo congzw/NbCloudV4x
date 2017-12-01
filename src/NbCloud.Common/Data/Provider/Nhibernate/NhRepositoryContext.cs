@@ -58,9 +58,6 @@ namespace NbCloud.Common.Data.Provider.Nhibernate
             get
             {
                 LogMessage("CTOR() => NhRepositoryContext => _transaction.BeginTransaction()");
-                //并发查询修改同一条记录的效率问题，数据库经常被阻塞异常
-                //跟这个无关，其实跟事务级别有关 
-                //session.FlushMode = FlushMode.Auto;
                 _transaction = _dbContext.BeginTransaction(this.IsolationLevel);
                 return this._dbContext;
             }

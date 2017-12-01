@@ -17,6 +17,8 @@ namespace NbCloud.Common.Data
         protected RepositoryContextBase()
         {
             _repositoryTable = new Dictionary<string, IRepository>();
+            //并发查询修改同一条记录的效率问题，数据库经常被阻塞异常
+            //跟session.FlushMode = FlushMode.Auto无关，其实跟事务级别有关 
             //IsolationLevel = IsolationLevel.ReadCommitted;
             IsolationLevel = IsolationLevel.ReadUncommitted;
         }
