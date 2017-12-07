@@ -66,7 +66,9 @@
   <ItemGroup>
     <Compile Include="AmbientScopes\AmbientScopeSpecs.cs" />
     <Compile Include="AmbientScopes\Ninjects\AmbientScopeTaskHelperSpecs.cs" />
+    <Compile Include="AmbientScopes\Ninjects\Mocks.cs" />
     <Compile Include="AmbientScopes\Ninjects\NinjectAmbientScopeSpecs.cs" />
+    <Compile Include="AmbientScopes\Ninjects\RepositoryContextScopeSpecs.cs" />
     <Compile Include="Data\Provider\Nhibernate\NhRepositoryContextSpecs.cs" />
     <Compile Include="Db\MyDbHelperSpecs.cs" />
     <Compile Include="Extensions\StringExtensionsSpecs.cs" />

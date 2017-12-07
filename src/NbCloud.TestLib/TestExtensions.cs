@@ -132,5 +132,9 @@ namespace NbCloud.TestLib
         {
             return AssertHelper.PrefixKo(value);
         }
+        public static string ObjectInfo(this object obj)
+        {
+            return string.Format("<{0},{1}>", obj.GetType().Name, obj.GetHashCode());
+        }
     }
 }

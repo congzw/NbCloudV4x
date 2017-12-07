@@ -51,7 +51,16 @@ namespace NbCloud.Common
         {
             #region for ioc extensions
 
-            private static readonly Lazy<TInterface> LazyInstance = new Lazy<TInterface>(() => new T());
+            private static readonly object _lock = new object();
+            private static T _instance = default(T);
+            private static readonly Lazy<TInterface> LazyInstance = new Lazy<TInterface>(() =>
+            {
+                lock (_lock)
+                {
+                    _instance = new T();
+                }
+                return _instance;
+            });
 
             private static Func<TInterface> _defaultFactoryFunc = () => LazyInstance.Value;
             /// <summary>
@@ -68,7 +77,10 @@ namespace NbCloud.Common
             /// </summary>
             internal static void ResetFactoryFunc()
             {
-                _defaultFactoryFunc = () => LazyInstance.Value;
+                lock (_lock)
+                {
+                    _defaultFactoryFunc = () => LazyInstance.Value;
+                }
             }
 
             /// <summary>
@@ -81,7 +93,10 @@ namespace NbCloud.Common
                 {
                     throw new ArgumentNullException("func");
                 }
-                _defaultFactoryFunc = func;
+                lock (_lock)
+                {
+                    _defaultFactoryFunc = func;
+                }
             }
 
             #endregion
