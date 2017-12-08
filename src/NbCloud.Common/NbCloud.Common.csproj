@@ -100,12 +100,17 @@
     <Compile Include="Demos\DisposeResourceDemo.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Logs\ILogger.cs" />
     <Compile Include="Logs\ILoggerManager.cs" />
     <Compile Include="Logs\Log4Net\Log4NetLogger.cs" />
     <Compile Include="Logs\Log4Net\Log4NetLoggerManager.cs" />
+    <Compile Include="Logs\LoggerConfig.cs" />
+    <Compile Include="Logs\LoggerExtensions.cs" />
     <Compile Include="Logs\LoggerManager.cs" />
     <Compile Include="Logs\Logger.cs" />
+    <Compile Include="Logs\LoggerManagerExtensions.cs" />
+    <Compile Include="Logs\LogLevel.cs" />
     <Compile Include="MessageResult.cs" />
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />

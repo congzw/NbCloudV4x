@@ -4,9 +4,8 @@ namespace NbCloud.Common.Logs
 {
     public interface ILoggerManager
     {
+        string Name { get; set; }
         ILogger GetLogger(string name);
-        ILogger GetLogger<T>();
         ILogger GetLogger(Type type);
-        ILogger GetLogger();
     }
 }

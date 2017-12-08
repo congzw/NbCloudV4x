@@ -16,7 +16,7 @@ namespace NbCloud.Common.Logs.Log4Net
 
         public string Prefix { get; set; }
         public string Adapter { get; set; }
-        public string Category { get; set; }
+        public string Name { get; set; }
 
         public void Debug(object message)
         {

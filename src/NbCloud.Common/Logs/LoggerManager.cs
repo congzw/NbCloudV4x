@@ -4,11 +4,11 @@ namespace NbCloud.Common.Logs
 {
     public class LoggerManager : ILoggerManager
     {
-        #region for di extensions
+        #region for extensions
 
-        private static readonly Lazy<ILoggerManager> _loggerManagerLazy = new Lazy<ILoggerManager>(() => new LoggerManager());
+        private static readonly Lazy<ILoggerManager> LoggerManagerLazy = new Lazy<ILoggerManager>(() => new LoggerManager());
 
-        private static Func<ILoggerManager> _resolve = () => _loggerManagerLazy.Value;
+        private static Func<ILoggerManager> _resolve = () => LoggerManagerLazy.Value;
         public static Func<ILoggerManager> Resolve
         {
             get { return _resolve; }
@@ -16,34 +16,24 @@ namespace NbCloud.Common.Logs
         }
 
         #endregion
-        
+
+        public LoggerManager()
+        {
+            Name = "Default";
+        }
+        public string Name { get; set; }
+
         public ILogger GetLogger(string name)
         {
-            var logger = new Logger();
-            if (!string.IsNullOrWhiteSpace(name))
+            var logger = new Logger
             {
-                logger.Category = name;
-            }
-            else
-            {
-                logger.Category = "";
-            }
+                Name = !string.IsNullOrWhiteSpace(name) ? name : LoggerConfig.Resolve().DefaultLoggerName
+            };
             return logger;
         }
-
-        public ILogger GetLogger<T>()
-        {
-            return GetLogger(typeof(T));
-        }
-
         public ILogger GetLogger(Type type)
         {
             return GetLogger(type.Name);
-        }
-
-        public ILogger GetLogger()
-        {
-            return GetLogger("");
         }
     }
 }

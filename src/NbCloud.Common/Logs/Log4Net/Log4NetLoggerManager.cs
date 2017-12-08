@@ -7,39 +7,27 @@ namespace NbCloud.Common.Logs.Log4Net
     {
         public Log4NetLoggerManager()
         {
+            Name = "Log4Net";
             log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.config"));
         }
-        
-        public ILogger GetLogger<T>()
+
+        public string Name { get; set; }
+
+        public ILogger GetLogger(string name)
         {
-            var type = typeof (T);
-            var logger = log4net.LogManager.GetLogger(type);
+            var nameFix = !string.IsNullOrWhiteSpace(name) ? name : LoggerConfig.Resolve().DefaultLoggerName;
+            var logger = log4net.LogManager.GetLogger(nameFix);
             var log4NetLogger = new Log4NetLogger(logger);
-            log4NetLogger.Category = type.Name;
+            log4NetLogger.Name = nameFix;
             return log4NetLogger;
         }
-
+        
         public ILogger GetLogger(Type type)
         {
             var logger = log4net.LogManager.GetLogger(type);
             var log4NetLogger = new Log4NetLogger(logger);
-            log4NetLogger.Category = type.Name;
+            log4NetLogger.Name = type.Name;
             return log4NetLogger;
-        }
-
-        public ILogger GetLogger(string name)
-        {
-            //fix prefix
-            var nameWithPrefix = string.IsNullOrWhiteSpace(name) ? PrefixHelper.Prefix : PrefixHelper.Prefix + "." + name;
-            var logger = log4net.LogManager.GetLogger(nameWithPrefix);
-            var log4NetLogger = new Log4NetLogger(logger);
-            log4NetLogger.Category = name;
-            return log4NetLogger;
-        }
-
-        public ILogger GetLogger()
-        {
-            return GetLogger("");
         }
     }
 }
