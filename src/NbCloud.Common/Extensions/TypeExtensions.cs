@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace NbCloud.Common.Extensions
@@ -13,6 +14,23 @@ namespace NbCloud.Common.Extensions
         public static Assembly GetAssembly(this Type type)
         {
             return type.GetTypeInfo().Assembly;
+        }
+
+        private static string _namespacePrefix = null;
+        public static string GetNamespacePrefix(this Type type)
+        {
+            if (_namespacePrefix != null)
+            {
+                return _namespacePrefix;
+            }
+            
+            var ns = type.Namespace;
+            if (ns != null)
+            {
+                var result = ns.Split('.').FirstOrDefault();
+                _namespacePrefix = !string.IsNullOrWhiteSpace(result) ? result : "NbCloud";
+            }
+            return _namespacePrefix;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -38,7 +39,7 @@ namespace NbCloud.TestLib
         {
             var message = string.Format("(Thread:{0}): {1} == {2}", CreateInThreadId.ToString("000"), Object1.GetHashCode(), Object2.GetHashCode());
             var isOkMessage = Object1 == Object2 ? AssertHelper.PrefixOk(message) : AssertHelper.PrefixKo(message);
-            Console.WriteLine(isOkMessage);
+            AssertHelper.WriteLine(isOkMessage);
             Assert.AreSame(Object1, Object2);
         }
 
@@ -46,7 +47,7 @@ namespace NbCloud.TestLib
         {
             var message = string.Format("(Thread:{0}): {1} != {2}", CreateInThreadId.ToString("000"), Object1.GetHashCode(), Object2.GetHashCode());
             var isOkMessage = Object1 != Object2 ? AssertHelper.PrefixOk(message) : AssertHelper.PrefixKo(message);
-            Console.WriteLine(isOkMessage);
+            AssertHelper.WriteLine(isOkMessage);
             Assert.AreNotSame(Object1, Object2);
         }
 

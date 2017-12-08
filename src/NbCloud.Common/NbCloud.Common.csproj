@@ -39,6 +39,10 @@
       <HintPath>..\..\lib\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\lib\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -97,12 +101,24 @@
     <Compile Include="Demos\DisposeResourceDemo.cs" />
     <Compile Include="Dependency.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Gini.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IniFileHelper.cs" />
     <Compile Include="Lambda.cs" />
+    <Compile Include="Logs\ILogger.cs" />
+    <Compile Include="Logs\ILoggerManager.cs" />
+    <Compile Include="Logs\Log4Net\Log4NetLogger.cs" />
+    <Compile Include="Logs\Log4Net\Log4NetLoggerManager.cs" />
+    <Compile Include="Logs\LoggerConfig.cs" />
+    <Compile Include="Logs\LoggerExtensions.cs" />
+    <Compile Include="Logs\LoggerManager.cs" />
+    <Compile Include="Logs\Logger.cs" />
+    <Compile Include="Logs\LoggerManagerExtensions.cs" />
+    <Compile Include="Logs\LogLevel.cs" />
     <Compile Include="MessageResult.cs" />
     <Compile Include="Modules\NbKernelModule.cs" />
     <Compile Include="Modules\DependsOnAttribute.cs" />
@@ -119,6 +135,8 @@
     <Compile Include="PlugIns\PlugInAssemblyLoader.cs" />
     <Compile Include="PlugIns\PlugInFinder.cs" />
     <Compile Include="PlugIns\PlugInManager.cs" />
+    <Compile Include="PrefixHelper.cs" />
+    <Compile Include="StackTraceHelper.cs" />
     <Compile Include="Tasks\IApplicationStopTask.cs" />
     <Compile Include="Tasks\IAutoTask.cs" />
     <Compile Include="Ioc\ActivationException.cs" />

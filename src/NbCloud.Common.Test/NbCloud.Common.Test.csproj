@@ -74,6 +74,10 @@
     <Compile Include="Extensions\StringExtensionsSpecs.cs" />
     <Compile Include="Modules\Mocks.cs" />
     <Compile Include="Modules\NbModuleSpecs.cs" />
+    <Compile Include="Logs\Log4Net\Log4NetLoggerManagerSpecs.cs" />
+    <Compile Include="Logs\LoggerExtensions.cs" />
+    <Compile Include="Logs\LoggerManagerSpecs.cs" />
+    <Compile Include="Logs\MyLogHelperSpecs.cs" />
     <Compile Include="MyConfigHelperSpecs.cs" />
     <Compile Include="MyIniFileHelperSpecs.cs" />
     <Compile Include="MyPathHelperSpecs.cs" />
@@ -104,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
