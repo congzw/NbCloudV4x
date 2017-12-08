@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NbCloud.Common.Ioc;
 using NbCloud.TestLib;
@@ -9,6 +10,42 @@ namespace NbCloud.Common
     [TestClass]
     public class ResolveAsSingletonSpecs
     {
+        private static readonly object Lock = new object();
+
+        [TestInitialize]
+        public void MyTestInitialize()
+        {
+            Monitor.Enter(Lock);
+            (Thread.CurrentThread.ManagedThreadId + " > Enter").Log();
+
+            #region desc
+
+            //C# 4 translate lock(){}
+            //bool lockWasTaken = false;
+            //var temp = obj;
+            //try
+            //{
+            //    Monitor.Enter(temp, ref lockWasTaken);
+            //    // body
+            //}
+            //finally
+            //{
+            //    if (lockWasTaken)
+            //    {
+            //        Monitor.Exit(temp);
+            //    }
+            //}
+
+            #endregion
+        }
+        [TestCleanup]
+        public void MyTestCleanup()
+        {
+            (Thread.CurrentThread.ManagedThreadId + " > Exit").Log();
+            Monitor.Exit(Lock);
+        }
+
+
         [TestMethod]
         public void SingleThread_Singleton_ShouldSame()
         {
@@ -47,7 +84,7 @@ namespace NbCloud.Common
                 , false);
             ResolveAsSingleton.ResetFactoryFunc<ResolveDemo, IResolveDemo>();
         }
-        
+
         [TestMethod]
         public void Use_Di_And_Register_Should_Return_Di_First()
         {
@@ -63,7 +100,7 @@ namespace NbCloud.Common
             var resolveDemoTestResult = ObjectIntanceTestResult.Create(resolveDemo, resolveDemo2);
             resolveDemoTestResult.ShouldNotSame();
         }
-        
+
         [TestMethod]
         public void Use_Di_Not_Register_Should_Return_Di_First()
         {
@@ -79,7 +116,7 @@ namespace NbCloud.Common
             var resolveDemoTestResult = ObjectIntanceTestResult.Create(resolveDemo, resolveDemo2);
             resolveDemoTestResult.ShouldSame();
         }
-        
+
         [TestMethod]
         public void Not_Use_Di_Should_Return_Default_First()
         {
@@ -107,7 +144,7 @@ namespace NbCloud.Common
             var resolveDemoTestResult = ObjectIntanceTestResult.Create(resolveDemo, resolveDemo2);
             resolveDemoTestResult.ShouldSame();
         }
-        
+
         #region test helper
 
         public interface IResolveUnknownDemo
@@ -127,7 +164,7 @@ namespace NbCloud.Common
         {
             public string Desc { get; set; }
         }
-        public class MockServiceLocator :  ServiceLocatorImplBase
+        public class MockServiceLocator : ServiceLocatorImplBase
         {
             protected override object DoGetInstance(Type serviceType, string key)
             {
