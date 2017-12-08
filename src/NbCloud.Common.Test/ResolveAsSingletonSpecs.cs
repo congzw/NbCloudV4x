@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NbCloud.Common.Ioc;
 using NbCloud.TestLib;
@@ -9,6 +10,42 @@ namespace NbCloud.Common
     [TestClass]
     public class ResolveAsSingletonSpecs
     {
+        private static readonly object Lock = new object();
+
+        [TestInitialize]
+        public void MyTestInitialize()
+        {
+            Monitor.Enter(Lock);
+            (Thread.CurrentThread.ManagedThreadId + " > Enter").Log();
+            
+            #region desc
+            
+            //C# 4 translate lock(){}
+            //bool lockWasTaken = false;
+            //var temp = obj;
+            //try
+            //{
+            //    Monitor.Enter(temp, ref lockWasTaken);
+            //    // body
+            //}
+            //finally
+            //{
+            //    if (lockWasTaken)
+            //    {
+            //        Monitor.Exit(temp);
+            //    }
+            //}
+
+            #endregion
+        }
+        [TestCleanup]
+        public void MyTestCleanup()
+        {
+            (Thread.CurrentThread.ManagedThreadId + " > Exit").Log();
+            Monitor.Exit(Lock);
+        }
+
+
         [TestMethod]
         public void SingleThread_Singleton_ShouldSame()
         {
@@ -26,7 +63,7 @@ namespace NbCloud.Common
             ResolveAsSingleton.ResetFactoryFunc<ResolveDemo, IResolveDemo>();
         }
 
-        int multiThreadTaskCount = 20;
+        int multiThreadTaskCount = 200;
         [TestMethod]
         public void MultiThread_Singleton_ShouldSame()
         {
