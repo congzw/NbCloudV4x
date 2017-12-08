@@ -10,10 +10,10 @@ namespace NbCloud.Common.Logs
         public void GetLogger_ByName_Should_OK()
         {
             var loggerManager = new LoggerManager();
-            var logger = loggerManager.GetLogger("Foo");
+            var logger = loggerManager.GetLogger("NbCloud.Foo");
             logger.ShouldNotNull();
-            logger.Name.ShouldEqual("Foo");
-            logger.DebugInvoke();
+            logger.Name.ShouldEqual("NbCloud.Foo");
+            logger.LogSelfInvoke();
         }
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace NbCloud.Common.Logs
             var logger = loggerManager.GetLogger(this.GetType());
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(this.GetType().Name);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace NbCloud.Common.Logs
             var logger = loggerManager.GetLogger<LoggerManagerSpecs>();
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(this.GetType().Name);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
         
         [TestMethod]
@@ -46,7 +46,7 @@ namespace NbCloud.Common.Logs
             var logger = loggerManager.GetLogger();
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(LoggerConfig.Resolve().DefaultLoggerName);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@ namespace NbCloud.Common.Logs
             var logger = loggerManager.GetLogger();
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(LoggerConfig.Resolve().DefaultLoggerName);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
     }
 }

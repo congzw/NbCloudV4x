@@ -71,9 +71,10 @@
     <Compile Include="Data\Provider\Nhibernate\NhRepositoryContextSpecs.cs" />
     <Compile Include="Db\MyDbHelperSpecs.cs" />
     <Compile Include="Extensions\StringExtensionsSpecs.cs" />
-    <Compile Include="Logs\LoggerExtensions.cs" />
     <Compile Include="Logs\Log4Net\Log4NetLoggerManagerSpecs.cs" />
+    <Compile Include="Logs\LoggerExtensions.cs" />
     <Compile Include="Logs\LoggerManagerSpecs.cs" />
+    <Compile Include="Logs\MyLogHelperSpecs.cs" />
     <Compile Include="MyConfigHelperSpecs.cs" />
     <Compile Include="MyProjectHelperSpecs.cs" />
     <Compile Include="NHibernates\NHibernateSetupSpecs.cs" />

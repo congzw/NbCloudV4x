@@ -17,16 +17,14 @@ namespace NbCloud.Common.Logs.Log4Net
         {
             var nameFix = !string.IsNullOrWhiteSpace(name) ? name : LoggerConfig.Resolve().DefaultLoggerName;
             var logger = log4net.LogManager.GetLogger(nameFix);
-            var log4NetLogger = new Log4NetLogger(logger);
-            log4NetLogger.Name = nameFix;
+            var log4NetLogger = new Log4NetLogger(logger,nameFix);
             return log4NetLogger;
         }
         
         public ILogger GetLogger(Type type)
         {
             var logger = log4net.LogManager.GetLogger(type);
-            var log4NetLogger = new Log4NetLogger(logger);
-            log4NetLogger.Name = type.Name;
+            var log4NetLogger = new Log4NetLogger(logger, type.Name);
             return log4NetLogger;
         }
     }

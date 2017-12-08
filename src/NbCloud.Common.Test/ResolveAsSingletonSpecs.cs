@@ -63,7 +63,7 @@ namespace NbCloud.Common
             ResolveAsSingleton.ResetFactoryFunc<ResolveDemo, IResolveDemo>();
         }
 
-        int multiThreadTaskCount = 200;
+        int multiThreadTaskCount = 20;
         [TestMethod]
         public void MultiThread_Singleton_ShouldSame()
         {

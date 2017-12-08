@@ -2,27 +2,11 @@
 
 namespace NbCloud.Common.Logs
 {
+    //遗留接口改造
     public interface IMyLogHelper
     {
-        /// <summary>
-        /// 获取当前配置的级别
-        /// </summary>
-        /// <returns></returns>
-        LogLevel GetLogLevel();
-
         void Debug(object message);
-
-        void Info(object message);
-        //todo
-        //void Warn(object message);
-        //void Error(object message);
-        //void Fatal(object message);
-
-        //void DebugFormat(string message, params object[] args);
-        //void InfoFormat(string message, params object[] args);
-        //void WarnFormat(string message, params object[] args);
-        //void ErrorFormat(string message, params object[] args);
-        //void FatalFormat(string message, params object[] args);
+        void Debug(Type type, object message);
     }
 
     public class MyLogHelper : IMyLogHelper, IResolveAsSingleton
@@ -30,6 +14,7 @@ namespace NbCloud.Common.Logs
         #region for di extensions
 
         private static Func<IMyLogHelper> _resolve = () => ResolveAsSingleton.Resolve<MyLogHelper, IMyLogHelper>();
+
         public static Func<IMyLogHelper> Resolve
         {
             get { return _resolve; }
@@ -38,30 +23,21 @@ namespace NbCloud.Common.Logs
 
         #endregion
 
-        public LogLevel GetLogLevel()
+        private Func<ILoggerManager> _loggerManagerFunc = LoggerManager.Resolve;
+        public Func<ILoggerManager> LoggerManagerFunc
         {
-            //todo adaptee by log4net & config
-            return LogLevel.Debug;
+            get { return _loggerManagerFunc; }
+            set { _loggerManagerFunc = value; }
         }
 
         public void Debug(object message)
         {
-            //todo adaptee by log4net & config
-            UtilsLogger.LogMessage(message.ToString());
+            LoggerManagerFunc().GetLogger(this.GetType()).Debug(message);
         }
 
-        public void Info(object message)
+        public void Debug(Type type, object message)
         {
-            //todo adaptee by log4net & config
-            UtilsLogger.LogMessage(message.ToString());
-        }
-    }
-
-    public static class MyLogHelperExtensions
-    {
-        public static void Debug(this IMyLogHelper helper, Type type, object message)
-        {
-            helper.Debug(string.Format("[{0}] => {1}", type.Name, message));
+            LoggerManagerFunc().GetLogger(type).Debug(message);
         }
     }
 }

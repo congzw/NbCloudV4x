@@ -25,10 +25,7 @@ namespace NbCloud.Common.Logs
 
         public ILogger GetLogger(string name)
         {
-            var logger = new Logger
-            {
-                Name = !string.IsNullOrWhiteSpace(name) ? name : LoggerConfig.Resolve().DefaultLoggerName
-            };
+            var logger = new Logger(!string.IsNullOrWhiteSpace(name) ? name : LoggerConfig.Resolve().DefaultLoggerName);
             return logger;
         }
         public ILogger GetLogger(Type type)

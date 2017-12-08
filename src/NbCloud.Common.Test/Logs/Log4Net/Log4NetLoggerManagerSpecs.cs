@@ -11,10 +11,10 @@ namespace NbCloud.Common.Logs.Log4Net
         {
             var loggerManager = new Log4NetLoggerManager();
 
-            var logger = loggerManager.GetLogger("Demo");
+            var logger = loggerManager.GetLogger("NbCloud.Demo");
             logger.ShouldNotNull();
-            logger.Name.ShouldEqual("Demo");
-            logger.DebugInvoke();
+            logger.Name.ShouldEqual("NbCloud.Demo");
+            logger.LogSelfInvoke();
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace NbCloud.Common.Logs.Log4Net
             var logger = loggerManager.GetLogger(this.GetType());
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(this.GetType().Name);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace NbCloud.Common.Logs.Log4Net
             var logger = loggerManager.GetLogger<Log4NetLoggerManagerSpecs>();
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(this.GetType().Name);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
 
         [TestMethod]
@@ -47,7 +47,7 @@ namespace NbCloud.Common.Logs.Log4Net
             var logger = loggerManager.GetLogger();
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(LoggerConfig.Resolve().DefaultLoggerName);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
 
         [TestMethod]
@@ -58,7 +58,7 @@ namespace NbCloud.Common.Logs.Log4Net
             var logger = loggerManager.GetLogger();
             logger.ShouldNotNull();
             logger.Name.ShouldEqual(LoggerConfig.Resolve().DefaultLoggerName);
-            logger.DebugInvoke();
+            logger.LogSelfInvoke();
         }
     }
 }
