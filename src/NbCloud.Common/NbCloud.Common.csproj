@@ -122,8 +122,8 @@
     <Compile Include="Logs\LoggerManagerExtensions.cs" />
     <Compile Include="Logs\LogLevel.cs" />
     <Compile Include="MessageResult.cs" />
-    <Compile Include="Modules\NbKernelModule.cs" />
     <Compile Include="Modules\DependsOnAttribute.cs" />
+    <Compile Include="Modules\NbKernelModule.cs" />
     <Compile Include="Modules\NbModule.cs" />
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />
