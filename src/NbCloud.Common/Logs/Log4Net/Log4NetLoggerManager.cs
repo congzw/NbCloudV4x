@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 namespace NbCloud.Common.Logs.Log4Net
 {
     public class Log4NetLoggerManager : ILoggerManager

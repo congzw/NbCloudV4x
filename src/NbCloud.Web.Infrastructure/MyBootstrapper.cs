@@ -1,4 +1,5 @@
 ﻿using NbCloud.Common.Logs;
+using NbCloud.Common.Logs.Log4Net;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NbCloud.Web.MyBootstrapper), "PreStart")]
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(NbCloud.Web.MyBootstrapper), "PostStart")]
@@ -9,6 +10,9 @@ namespace NbCloud.Web
     {
         public static void PreStart()
         {
+            //use log4net
+            Log4NetConfig.Enabled();
+
             Log("====MyBootstrapper NHibernateConfig.Setup() Start====");
             NHibernateConfig.Setup();
             Log("====MyBootstrapper NHibernateConfig.Setup() End====");

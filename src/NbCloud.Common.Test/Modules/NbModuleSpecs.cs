@@ -43,7 +43,7 @@ namespace NbCloud.Common.Modules
             moduleTypes[0].Name.ShouldEqual(typeof(ModuleA).Name);
             moduleTypes[1].Name.ShouldEqual(typeof(ModuleB).Name);
             moduleTypes[2].Name.ShouldEqual(typeof(ModuleC).Name);
-            moduleTypes[3].Name.ShouldEqual(typeof(NbKernelModule).Name);
+            moduleTypes[3].Name.ShouldEqual(typeof(ModuleMain).Name);
         }
     }
 }

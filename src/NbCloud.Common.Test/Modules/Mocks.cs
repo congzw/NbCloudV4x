@@ -4,14 +4,6 @@ using NbCloud.Common.Extensions;
 
 namespace NbCloud.Common.Modules
 {
-    [DependsOn(typeof(ModuleB), typeof(ModuleC))]
-    public class ModuleA : NbModule
-    {
-        public override Assembly[] GetAdditionalAssemblies()
-        {
-            return new[] { typeof(TestMethodAttribute).GetAssembly() };
-        }
-    }
 
     [DependsOn(typeof(ModuleC))]
     public class ModuleB : NbModule
@@ -29,9 +21,24 @@ namespace NbCloud.Common.Modules
             return new[] { typeof(TestMethodAttribute).GetAssembly() };
         }
     }
-    
-    public class ModuleMain : NbModule
+
+    [DependsOn(typeof(ModuleB), typeof(ModuleC))]
+    public class ModuleA : NbModule
     {
-        
+        public override Assembly[] GetAdditionalAssemblies()
+        {
+            return new[] { typeof(TestMethodAttribute).GetAssembly() };
+        }
     }
+
+    //还没太想好！
+    public class ModuleMain : NbKernelModule
+    {
+
+    }
+
+    //public class ModuleMain :  NbModule, INbKernelModule
+    //{
+
+    //}
 }

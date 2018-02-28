@@ -113,6 +113,8 @@
     <Compile Include="Logs\ILoggerManager.cs" />
     <Compile Include="Logs\Log4Net\Log4NetLogger.cs" />
     <Compile Include="Logs\Log4Net\Log4NetLoggerManager.cs" />
+    <Compile Include="Logs\Log4Net\Log4NetConfig.cs" />
+    <Compile Include="Logs\Log4Net\LogModule.cs" />
     <Compile Include="Logs\LoggerConfig.cs" />
     <Compile Include="Logs\LoggerExtensions.cs" />
     <Compile Include="Logs\LoggerManager.cs" />
@@ -120,8 +122,8 @@
     <Compile Include="Logs\LoggerManagerExtensions.cs" />
     <Compile Include="Logs\LogLevel.cs" />
     <Compile Include="MessageResult.cs" />
-    <Compile Include="Modules\NbKernelModule.cs" />
     <Compile Include="Modules\DependsOnAttribute.cs" />
+    <Compile Include="Modules\NbKernelModule.cs" />
     <Compile Include="Modules\NbModule.cs" />
     <Compile Include="MyConfigHelper.cs" />
     <Compile Include="MyDebugHelper.cs" />

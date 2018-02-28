@@ -3,6 +3,27 @@
 
 [ref](https://aspnetboilerplate.com/Pages/Documents/Module-System)
 
+Plugin(Umbraco, NopCommerce, ...)
+Module(Orchard, Abp, DNN, ...)
+
+
+
+NbModule:
+
+- 模块的逻辑定义，提供元信息（名称，版本，类型，清单，依赖，...）
+- 生命周期约定
+    - PreInitialize
+    - Initialize
+    - PostInitialize
+    - Shutdown
+
+NbPackage:
+
+- 模块包的物理单位，遵循约定结构（css, view, js, sql, ...）
+- 是安装，卸载，升级的最小单位
+- 支持发现，扩展？
+
+
 
 Plugin(Umbraco, NopCommerce, ...)
 Module(Orchard, Abp, DNN, ...)
@@ -63,7 +84,8 @@ ABP框架提供了创建和组装模块的基础，一个模块能够依赖于�
 模块系统当前专注于服务端而不是客户端。
 
 >译者注：
-如果学习过Orchard的朋友，应该知道module模块的强大了。模块的本质就是可重用性，你可以在任意的地方去调用，而且通过实现模块，你写的模块也可以给别人用。.net可以通过反射获取一个程序集中的类以及方法。
+如果学习过Orchard的朋友，应该知道module模块的强大了。模块的本质就是可重用性，你可以在任意的地方去调用，而且通过实现模块，你写的模块也可以给别人用。
+.net可以通过反射获取一个程序集中的类以及方法。
 
 ### 1.3.2 定义模块
 

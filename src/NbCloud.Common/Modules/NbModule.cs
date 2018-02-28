@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using NbCloud.Common.Collections.Extensions;
+using NbCloud.Common.Extensions;
 
 namespace NbCloud.Common.Modules
 {
@@ -134,7 +135,16 @@ namespace NbCloud.Common.Modules
             AddModuleAndDependenciesRecursively(list, moduleType);
             if (autoIncludeKernelModule)
             {
-                list.AddIfNotContains(typeof(NbKernelModule));
+                //list.AddIfNotContains(typeof(NbKernelModule));
+                //find all kernel modules
+                var kernelModules = FindAllKernelModules(moduleType);
+                foreach (var kernelModule in kernelModules)
+                {
+                    if (!list.Contains(kernelModule))
+                    {
+                        list.AddIfNotContains(kernelModule);
+                    }
+                }
             }
             return list;
         }
@@ -159,6 +169,17 @@ namespace NbCloud.Common.Modules
             {
                 AddModuleAndDependenciesRecursively(modules, dependedModule);
             }
+        }
+
+        private static List<Type> FindAllKernelModules(Type moduleType)
+        {
+            var assembly = moduleType.GetAssembly();
+            var kernels = assembly.GetTypes().Where(typeInfo =>
+                typeInfo.IsClass &&
+                !typeInfo.IsAbstract &&
+                !typeInfo.IsGenericType &&
+                typeof (INbKernelModule).IsAssignableFrom(typeInfo)).ToList();
+            return kernels;
         }
     }
 }
