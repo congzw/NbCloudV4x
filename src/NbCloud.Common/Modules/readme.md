@@ -4,6 +4,27 @@
 [ref](https://aspnetboilerplate.com/Pages/Documents/Module-System)
 
 
+Plugin(Umbraco, NopCommerce, ...)
+Module(Orchard, Abp, DNN, ...)
+
+
+
+NbModule:
+
+- 模块的逻辑定义，提供元信息（名称，版本，类型，清单，依赖，...）
+- 生命周期约定
+    - PreInitialize
+    - Initialize
+    - PostInitialize
+    - Shutdown
+
+NbPackage:
+
+- 模块包的物理单位，遵循约定结构（css, view, js, sql, ...）
+- 是安装，卸载，升级的最小单位
+- 支持发现，扩展？
+
+
 模块系统
 
 ## 模块生命周期方法及其调用顺序
