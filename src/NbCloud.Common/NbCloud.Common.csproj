@@ -160,6 +160,8 @@
     <Compile Include="Priority.cs" />
     <Compile Include="Tasks\IRequestBeginTask.cs" />
     <Compile Include="Tasks\IRequestEndTask.cs" />
+    <Compile Include="Trees\IHaveRelationCode.cs" />
+    <Compile Include="Trees\TreeItemHolder.cs" />
     <Compile Include="UtilsDateTime.cs" />
     <Compile Include="UtilsLogger.cs">
       <SubType>Code</SubType>

@@ -94,6 +94,9 @@
     <Compile Include="ResolveAsSingletonSpecs.cs" />
     <Compile Include="PrioritySpecs.cs" />
     <Compile Include="Tasks\AutoTaskSpecs.cs" />
+    <Compile Include="Trees\HaveRelationCodeExtensionsSpec.cs" />
+    <Compile Include="Trees\Mocks.cs" />
+    <Compile Include="Trees\TreeItemHolderSpec.cs" />
     <Compile Include="Web\MyHostHelperSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
